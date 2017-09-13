@@ -1,8 +1,17 @@
 <html>
 <head>
+    <title>JavaScript</title>
+    <meta charset="UTF-8"/>
     <link rel="stylesheet" href="reveal/css/reveal.css">
     <link rel="stylesheet" href="reveal/css/theme/league.css">
     <link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'reveal/css/print/pdf.css' : 'reveal/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
 </head>
 <body>
 <div class="reveal">
@@ -228,7 +237,7 @@
                     <aside class="notes">
                         `var` est un mot clé JS.  
                         `choix` est le nom de la variable (une boîte).  
-                        La fonction `confirm` retourne vrai ou faux.
+                        La fonction `confirm` retourne vrai ou faux.  
                         `if` est une structure de contrôle
                     </aside>
                 </script>
@@ -331,12 +340,12 @@
                     et pose d’un écouteur
                     
                     ```js
-                        function message() {
+                        function showMessage() {
                             console.log('Bouton cliqué !');
                         }
                     
                         var button = document.querySelector('.navToggle');
-                        button.addEventListener('click', message);
+                        button.addEventListener('click', showMessage);
                     ```
                     
                     <aside class="notes">
@@ -344,7 +353,7 @@
                         `querySelector` est une méthode de `document`.  
                         Sélecteur CSS en paramètre.  
                         `addEventListener`  est une méthode de l’élément `button`.  
-                        Au clic, on exécute la fonction `message`
+                        Au clic, on exécute la fonction `showMessage`
                     </aside>
                 </script>
             </section>
@@ -379,7 +388,7 @@
                     ```
                     
                     <aside class="notes">
-                        `classList` est une propriété de l’élément `body`.
+                        `classList` est une propriété de l’élément `body`.  
                         `toggle()` est une méthode de la propriété `classList`.  
                         On accède à la propriété d’un objet grâce à l’opérateur `.`  
                         `toggle()` ajoute ou retire la classe selon qu’elle est présente ou pas.
