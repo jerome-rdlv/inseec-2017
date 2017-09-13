@@ -1,0 +1,464 @@
+<html>
+<head>
+    <link rel="stylesheet" href="reveal/css/reveal.css">
+    <link rel="stylesheet" href="reveal/css/theme/league.css">
+    <link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section data-markdown>
+            <script type="text/template">
+                # JavaScript
+
+                * Pas Java <!-- .element: class="fragment" data-fragment-index="1" -->
+                * Pour ajouter de l’interactivité aux pages Web <!-- .element: class="fragment" data-fragment-index="2" -->
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Organisation
+
+                * Faire afficher les extensions de fichiers
+                * Isoler l’exercice du reste
+                * Travailler dans un seul dossier à la fois
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Outils
+
+                * Travailler avec l’inspecteur Web
+                * Vérifier la console à chaque changement
+                * Désactiver le cache
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Debrief exercices
+            </script>
+        </section>
+
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    Pour insérer du **JavaScript** directement dans une page :
+
+                    <pre><code data-trim data-noescape>
+                        &lt;script type="text/javascript"&gt;
+                            alert('Hello INSEEC!');
+                        &lt;/script&gt;
+                    </code></pre>
+
+                    Ça s’appelle *JavaScript en ligne* ou
+                    *inlined JS*
+
+                    Mais inconvénients…
+
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    Si le même script est utilisé sur toutes les pages du site
+                    (extrêmement fréquent), il est rechargé par le réseau
+                    à chaque chargement de page. Pas bon…
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## Au passage…
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    <pre><code>&lt;script type="text/javascript"&gt;</code></pre>
+
+                    **`text/javascript`** est le type MIME de JavaScript
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    * `text/css` pour du CSS
+                    * `text/plain` pour du texte simple
+                    * `text/html` pour du HTML
+                    * `image/jpg` pour une image JPEG
+                    * `text/png` pour une image PNG
+
+                    Pour en savoir plus, voir [Type MIME](https://fr.wikipedia.org/wiki/Type_MIME)
+                </script>
+            </section>
+        </section>
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    Pour appeler un fichier **JavaScript** externe :
+
+                    <pre><code data-trim data-noescape>
+                        &lt;script type="text/javascript" src="index.js"&gt;&lt;/script&gt;
+                    </code></pre>
+
+                    * Mis en cache !
+                    * Chargé une seule fois
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    Contenu du fichier `index.js` :
+
+                    ```js
+                        alert('Hello INSEEC!');
+
+                    ```
+
+                    (Ce qui était entre les balises &lt;script&gt;)
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    On place cette balise  
+                    juste avant la balise `</body>`
+                    
+                    <aside class="notes">
+                        Permet de ne charger / exécuter le JavaScript qu’après
+                        chargement complet du DOM par le navigateur.
+                    </aside>
+                    
+                </script>
+            </section>
+        </section>
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## Exercice 1
+                    
+                    Pour créer une boîte de dialogue :
+
+                    ```js
+                        alert('Hello INSEEC!');
+                    ```
+
+                    * `alert` est le nom d’une fonction
+                    * les parenthèses servent à l’appeler
+                    * entre les parenthèses se trouvent les paramètres de la fonction
+                    * ici une *chaîne de caractère* : du texte entre guillemets
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    La fonction [`alert`](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)
+                    est pré-définie par le navigateur.
+
+                    Mais on peut définir nos propres fonctions…
+
+                    ```js
+                        function doSomething(param) {
+                            // Ici on fait quelque chose, par exemple…
+                            console.log(param);
+                        }
+                    ```
+                    
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    Et les appeler
+
+                    ```js
+                    doSomething();
+                    ```
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    Et à propos…
+
+                    ```js
+                        // Ça, c’est un commentaire, sur une ligne
+
+                        /* Et ça aussi,
+                           mais attention à bien le refermer */
+                    ```
+                </script>
+            </section>
+        </section>
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## Exercice 2
+                    
+                    Pour afficher un message dans la console de l’inspecteur Web :
+    
+                    ```js
+                        console.log('Hello INSEEC!');
+                    ```
+                    
+                    Voir la doc de [`console.log`](https://developer.mozilla.org/en-US/docs/Web/API/Console/log)
+                    
+                    <aside class="notes">
+                        `console` est un objet JavaScript fourni par le navigateur.  
+                        `log` est une `méthode` de l’objet console (une fonction spécifique à un objet).  
+                        On accède à la méthode d’un objet grâce à l’opérateur `.`
+                    </aside>
+                </script>
+            </section>
+        </section>
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## Exercice 3
+                    
+                    Utiliser un dialogue de confirmation  
+                    et n’afficher un message dans la console  
+                    que si l’utilisateur clique sur OK.
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    ```js
+                        var choix = confirm('Afficher un message ?');
+                        if (choix) {
+                            console.log('En v’la un message !');
+                        }
+                    ```
+                    
+                    <aside class="notes">
+                        `var` est un mot clé JS.  
+                        `choix` est le nom de la variable (une boîte).  
+                        La fonction `confirm` retourne vrai ou faux.
+                        `if` est une structure de contrôle
+                    </aside>
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    Un bloc de code est contenu entre des accolades.
+                    
+                    ```js
+                        if (test) {
+                            // Ce block est exécuté si test est vrai
+                        }
+                        else {
+                            // Ce block est exécuté si test est faux
+                        }
+                    ```
+                </script>
+            </section>
+        </section>
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## Exercice 5
+                    
+                    Boucle `for`
+                    
+                    ```js
+                        for (var i = 1; i <= 1000; i = i + 1) {
+                            console.log(i);
+                        }
+                    ```
+                    
+                    * Initialisation
+                    * Condition
+                    * Incrémentation
+                    
+                    <aside class="notes">
+                        `for` est une autre structure de contrôle JS.
+                    </aside>
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    Boucle `while`
+                    
+                    ```js
+                        var i = 1;
+                        while (i <= 1000) {
+                            console.log(i);
+                            i++;
+                        }
+                    ```
+                </script>
+            </section>
+        </section>
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## Exercice 6
+                    
+                    Fibonacci
+                    
+                    ```js
+                        function fibonacci(max) {
+                            var fib = [0, 1];
+                            for (var i = 2; i < max; i++) {
+                                fib[i] = fib[i - 2] + fib[i - 1];
+                            }
+                            return fib;
+                        }
+                    
+                        var resultat = fibonacci(20);
+                        console.log(resultat);
+                    ```
+                    
+                    <aside class="notes">
+                        `fib` est un tableau. L’index des tableaux commence à 0.  
+                        `fib[0]` pour accéder au premier élément.  
+                        `return` pour renvoyer la valeur.
+                    </aside>
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    Permet d’approcher le [nombre d’or](https://en.wikipedia.org/wiki/Golden_ratio#Relationship_to_Fibonacci_sequence).
+                    
+                    ```js
+                        var fib = fibonacci(50);
+                        console.log('Phi ~ '+ (fib[49] / fib[48]));
+                    ```
+                </script>
+            </section>
+        </section>
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## Exercice 7
+                    
+                    Récupération d’un élément du DOM    
+                    et pose d’un écouteur
+                    
+                    ```js
+                        function message() {
+                            console.log('Bouton cliqué !');
+                        }
+                    
+                        var button = document.querySelector('.navToggle');
+                        button.addEventListener('click', message);
+                    ```
+                    
+                    <aside class="notes">
+                        `document` est l’élément racine de la page, fourni par le navigateur.  
+                        `querySelector` est une méthode de `document`.  
+                        Sélecteur CSS en paramètre.  
+                        `addEventListener`  est une méthode de l’élément `button`.  
+                        Au clic, on exécute la fonction `message`
+                    </aside>
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    Pourrait aussi s’écrire
+                    
+                    ```js
+                        var button = document.querySelector('.navToggle');
+                        button.addEventListener('click', function () {
+                            console.log('Bouton cliqué !');
+                        });
+                    ```
+                    
+                    Avec une fonction anonyme ou *closure*.
+                </script>
+            </section>
+        </section>
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## Exercice 8
+                    
+                    Ajout / modification d’une classe
+                    
+                    ```
+                    var button = document.querySelector('.navToggle');
+                    button.addEventListener('click', function () {
+                        var body = document.querySelector('body');
+                        body.classList.toggle('nav-on');
+                    });
+                    ```
+                    
+                    <aside class="notes">
+                        `classList` est une propriété de l’élément `body`.
+                        `toggle()` est une méthode de la propriété `classList`.  
+                        On accède à la propriété d’un objet grâce à l’opérateur `.`  
+                        `toggle()` ajoute ou retire la classe selon qu’elle est présente ou pas.
+                    </aside>
+                </script>
+            </section>
+        </section>
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## Exercice 9
+                    
+                    Masquage et affichage du menu
+                    
+                    ```css
+                        nav {
+                            display: none;
+                        }
+                    
+                        body.nav-on nav {
+                            display: block;
+                        }
+                    ```
+                    
+                    <aside class="notes">
+                        On ne gère que l’interactivité (événement click) en JS. Le changement
+                        d’affichage est laissé à CSS grâce à la modification d’une classe.  
+                    </aside>
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    Et en JS, comme prédemment (ou presque)
+                    ```js
+                        var button = document.querySelector('.navToggle');
+                    
+                        button.addEventListener('click', function () {
+                            var body = document.querySelector('body');
+                            body.classList.toggle('nav-on');
+                        });
+                    ```
+                </script>
+            </section>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                Pour des présentations HTML / CSS / JS
+                
+                * [Reveal.js](http://lab.hakim.se/reveal-js/) utilisé pour cette présentation
+                * [Impress.js](https://github.com/impress/impress.js)
+            </script>
+        </section>
+    </div>
+</div>
+<script src="reveal/lib/js/head.min.js"></script>
+<script src="reveal/js/reveal.js"></script>
+<script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        slideNumber: 'c/t',
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            { src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'reveal/plugin/zoom-js/zoom.js', async: true },
+            { src: 'reveal/plugin/notes/notes.js', async: true }
+        ]
+    });
+
+</script>
+</body>
+</html>
