@@ -135,9 +135,266 @@
                         Permet de ne charger / exécuter le JavaScript qu’après
                         chargement complet du DOM par le navigateur.
                     </aside>
-                    
                 </script>
             </section>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Types de données JS
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                Chaîne de caractère
+                
+                ```js
+                    var toto = 'Une chaîne de caractère';
+                    var tutu = "Une autre chaîne de caractère";
+                ```
+                
+                <small>Les chaînes de caractère en JavaScript peuvent être
+                délimités  
+                    soit par des guillemets simples&nbsp;(') soit
+                par des guillemets doubles&nbsp;(").</small>
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                Nombre entier
+                
+                ```js
+                    var toto = 123;
+                    var tutu = parseInt('123');
+                ```
+                
+                <small>La fonction `parseInt()` permet de convertir une chaîne de caractère
+                    en nombre entier</small>
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                Nombre à virgule
+                
+                ```js
+                    var toto = 12.5;
+                    var tutu = parseFloat('12.5');
+                
+                    // Affichera 12 !
+                    console.log(parseInt('12.5'));
+                ```
+            </script>
+        </section>
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    Tableau
+                    
+                    ```js
+                        // un tableau vide
+                        var toto = [];
+                    
+                        // un tableau à quatre éléments
+                        var tutu = ['A', 'B', 'C', 'D'];
+                    ```
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    Accéder aux éléments d’un tableau
+                    
+                    ```js
+                        var tutu = ['A', 'B', 'C', 'D'];
+                    
+                        // accéder au premier élément (A)
+                        tutu[0]
+                    
+                        // accéder au quatrième élément d’un tableau (D)
+                        tutu[3]
+                    
+                        // erreur ! le tableau n’a que quatre éléments
+                        // donc pas d’index 4
+                        tutu[4]
+                    ```
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    Connaître la longueur d’un tableau
+                    
+                    ```js
+                        var tutu = ['A', 'B', 'C', 'D'];
+                    
+                        // affiche 4
+                        console.log(tutu.length);
+                    
+                        // on peut donc boucler sur tout un tableau
+                        for (var i = 0; i < tutu.length; i++) {
+                            console.log(tutu[i]);
+                        }
+                    ```
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    Modifier un tableau
+                    
+                    ```js
+                        var tutu = ['A', 'B', 'C', 'D'];
+                    
+                        // ajoute à la fin
+                        tutu.push('E', 'Z');
+                    
+                        // ajoute au début
+                        tutu.unshift('W');
+                    
+                        // retire le dernier item et le retourne
+                        var item = tutu.pop();
+                    
+                        // affiche 'Z'
+                        console.log(item);
+                    ```
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    Ça n’est qu’un aperçu…
+                    
+                    Voir la [documentation sur MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+                </script>
+            </section>
+        </section>
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    Objet
+                    
+                    ```js
+                        // un objet vide
+                        var titi = {};
+                    
+                        // un objet avec deux propriétés
+                        var coords = {
+                            lat: 45.769245,
+                            lng: 4.826735
+                        };
+                    
+                        // affiche la latitude
+                        console.log(coords.lat);
+                    
+                        // affiche la longitude (moyen d’accès alternatif)
+                        console.log(coords['lng']);
+                    ```
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    Un objet avec des propriétés et des méthodes
+                    
+                    ```js
+                        var voiture = {
+                            vitesse: 0,
+                            direction: 0,
+                            accelerer: function (n) {
+                                // …
+                            },
+                            ralentir: function (n) {
+                                // …
+                            },
+                            tourner: function (angle) {
+                                // …
+                            }
+                        };
+                    ```
+                </script>
+            </section>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                `undefined`
+                
+                ```js
+                if (typeof toto === 'undefined') {
+                    // quand toto n’existe absolument pas
+                }
+                ```
+                
+                <img src="beast-404.ce38fcf80386.png" style="border: none; background: none; box-shadow: none;">
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Opérateurs
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                `var` pour définir une variable
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                Modulo (`%`) pour obtenir un reste
+                
+                ```js
+                    // Affichera 5 (le reste de la division de 23 par 9)
+                    console.log(23 % 9);
+                ```
+                
+                23 = 9 × 2 + 5
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                `++` et `--`
+                
+                ```js
+                    var i = 0;
+                
+                    // ajoute 1 à i
+                    i++
+                
+                    // retire 1 à i
+                    i--
+                ```
+                
+                23 = 9 × 2 + 5
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                Comparaisons
+                
+                <table style="color:inherit;font-size:.75em;">
+                    <tr>
+                        <td><code>==</code></td>
+                        <td>égalité simple</td>
+                    </tr>
+                    <tr>
+                        <td><code>!=</code></td>
+                        <td>inégalité simple</td>
+                    </tr>
+                    <tr>
+                        <td><code>===</code></td>
+                        <td>égalité de valeur <strong>et</strong> de type</td>
+                    </tr>
+                    <tr>
+                        <td><code>!==</code></td>
+                        <td>inégalité de valeur <strong>et</strong> de type</td>
+                    </tr>
+                    <tr>
+                        <td><code>&gt;</code></td>
+                        <td>plus grand que</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;</code></td>
+                        <td>plus petit que</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;=</code></td>
+                        <td>plus petit ou égal</td>
+                    </tr>
+                </table>
+            </script>
         </section>
         <section>
             <section data-markdown>
@@ -439,6 +696,17 @@
                 
                 * [Reveal.js](http://lab.hakim.se/reveal-js/) utilisé pour cette présentation
                 * [Impress.js](https://github.com/impress/impress.js)
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                Choses à voir pour aller plus loin
+                
+                * [NodeJS](https://nodejs.org/en/), JavaScript hors du navigateur
+                * [Markdown](https://fr.wikipedia.org/wiki/Markdown), mise en forme texte
+                * [Sass](http://sass-lang.com/), préprocesseur CSS (à l’instar de Less)
+                * [Yarn](https://yarnpkg.com/lang/en/), gestionnaire de dépendances pour le web
+                * [Gulp](https://www.npmjs.com/package/gulp-cssnano) / [Grunt](https://gruntjs.com/) / [Webpack](https://webpack.js.org/)
             </script>
         </section>
     </div>

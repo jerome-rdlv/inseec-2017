@@ -1,0 +1,148 @@
+<html>
+<head>
+    <title>Sélecteurs CSS</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="reveal/css/reveal.css">
+    <link rel="stylesheet" href="reveal/css/theme/league.css">
+    <link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'reveal/css/print/pdf.css' : 'reveal/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section data-markdown>
+            <script type="text/template">
+                # Sélécteurs CSS
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                Permettent d’indiquer au navigateur à quoi
+                s’appliquent les propriétés CSS
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                Nom du tag (sélecteur de type)
+                
+                ```css
+                    body {
+                        background: red;
+                    }
+                ```
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                Nom de la classe
+                
+                ```css
+                    .navToggle {
+                        font-weight: bold;
+                    }
+                ```
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                Identifiant (unique !)
+                
+                ```css
+                    #contact {
+                        display: none;
+                    }
+                ```
+                Pour rappel, un identifiant doit être  
+                unique dans la page !
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                Attribut
+                
+                ```css
+                    [href] {
+                        /* tout élément possédant l’attribut href */
+                    }
+                    [href="http://example.org"] {
+                        /* tout élément ayant exactement cette valeur */
+                    }
+                    [href^="https://"] {
+                        /* tout élément dont l’attribut href commence par… */
+                    }
+                    [href$=".html"] {
+                        /* tout élément dont l’attribut href fini par… */
+                    }
+                ```
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                Les sélecteurs peuvent être combinés.
+                
+                ```css
+                    body.nav-on {
+                        /* body lorsqu’il porte la classe 'nav-on' */
+                    }
+                    body.nav-on nav {
+                        /* nav enfant de l’élément body sans classe 'nav-on' */
+                    }
+                    p:not(.active) {
+                        /* p qui ne porte pas la classe 'active' */
+                    }
+                    p > span {
+                        /* span enfant direct d’un p */
+                    }
+                ```
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                Ces sélecteurs fonctionnent aussi en JavaScript  
+                avec `querySelector()` et `jQuery()`
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                Pour une présentation plus détaillée des sélecteurs
+                et de leur spécificité, voir
+                [CSS/Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity).
+            </script>
+        </section>
+    </div>
+</div>
+<script src="reveal/lib/js/head.min.js"></script>
+<script src="reveal/js/reveal.js"></script>
+<script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        slideNumber: 'c/t',
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            { src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'reveal/plugin/zoom-js/zoom.js', async: true },
+            { src: 'reveal/plugin/notes/notes.js', async: true }
+        ]
+    });
+
+</script>
+</body>
+</html>
