@@ -106,6 +106,31 @@
         </section>
         <section data-markdown>
             <script type="text/template">
+                Autres manipulations
+                
+                ```js
+                    var $chapitre = $('div.chapitre');
+                
+                    // replie l’élément
+                    $chapitre.slideUp(200,function () {
+                        console.log('Le chapitre est déplié');
+                    });
+                ```
+                
+                Voir la documentation de [`slideUp`](http://api.jquery.com/slideUp/)
+                et [`slideDown`](http://api.jquery.com/slideDown/).
+                
+                <aside class="notes">
+                    Le premier paramètre de `slideUp` est la durée de l’animation en milisecondes.  
+                    Le deuxième paramètre est une `callback`, c’est à dire une fonction,
+                    qui sera appelée une fois l’animation terminée.  
+                    Les `callback` sont très utilisées en JavaScript pour la programmation
+                    *asynchrone*, notamment dans les écouteurs d’événements (comme `addEventListener`).
+                </aside>
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
                 Programmation asynchrone…
                 
                 ```js

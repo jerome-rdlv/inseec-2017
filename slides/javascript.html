@@ -690,6 +690,30 @@
                 </script>
             </section>
         </section>
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## Exercices 10 et 11
+        
+                    Au lieu d’afficher et masquer le menu avec `visibility` ou `display`,
+                    on le pousse hors écran avec `transform`
+                    
+                    ```css
+                        nav {
+                            height: 100%;
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            transform: translateX(-100%);
+                            transition: transform 300ms;
+                        }
+                        body.nav-on nav {
+                            transform: translateX(0);
+                        }
+                    ```
+                </script>
+            </section>
+        </section>
         <section data-markdown>
             <script type="text/template">
                 Pour des présentations HTML / CSS / JS
@@ -707,6 +731,13 @@
         </section>
         <section data-markdown>
             <script type="text/template">
+                Excellente ressource pour UX Design, développement, accessibilité, inspiration… 
+
+                [Smashing Magazine](https://www.smashingmagazine.com/)
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
                 Choses à voir pour aller plus loin
                 
                 * [NodeJS](https://nodejs.org/en/), JavaScript hors du navigateur
@@ -715,6 +746,68 @@
                 * [Yarn](https://yarnpkg.com/lang/en/), gestionnaire de dépendances pour le web
                 * [Gulp](https://www.npmjs.com/package/gulp-cssnano) / [Grunt](https://gruntjs.com/) / [Webpack](https://webpack.js.org/)
             </script>
+        </section>
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    One more thing…
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    Différentes façon d’écouter un événement
+                    
+                    ```js
+                        // JavaScript pur
+                        button.addEventListener('click', function (e) {});
+                    ```
+                    
+                    ```html
+                        <!-- Dans le HTML, mais pas bon -->
+                        <button onclick="doSomething();">OK</button>
+                        <a href="javascript:doSomething();">OK</a>
+                    ```
+                    
+                    La dernière méthode nous intéresse !
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## Bookmarklet / Favelet
+                    
+                    Permet de placer du JavaScript  
+                    dans les marques pages, par exemple…
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## Bookmarklet / Favelet
+                    
+                    Dans le champ URL d’un favoris :
+                    ```js
+                        javascript:jQuery('.top-bar,.main-head,.main-featured,.sidebar,.read-more,article>a').remove();jQuery('.main-content').toggleClass('col-8 col-12');jQuery('article .content').css('margin-left', 0)
+                    ```
+                    
+                    Pour les actions ponctuelles
+                    
+                    <aside class="notes">
+                        Un favelet s’exécute dans le contexte de la page chargée.  
+                        On peut utiliser jQuery ici parce que jQuery est utilisée par le site.
+                    </aside>
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## Autres approches
+                    
+                    * User CSS : feuilles de style utilisateur
+                    * User Scripts : scripts utilisateur
+                    
+                    Avec [GreaseMonkey](https://addons.mozilla.org/fr/firefox/addon/greasemonkey/) pour Firefox ou
+                    [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) pour Chrome,
+                    faîtes exécuter *vos* scripts au chargement de n’importe quelle page web.
+                </script>
+            </section>
         </section>
     </div>
 </div>
