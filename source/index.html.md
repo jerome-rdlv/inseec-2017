@@ -20,8 +20,8 @@ voir [NodeJS](https://nodejs.org/en/).
 
 Dans une page web, le balisage est censé servir le *sens*, la *sémantique* : structurer le contenu.
 Un paragraphe, une liste, un lien, une section, un entête, etc. Les feuilles de styles en
-cascade (Cascading Style Sheets / CSS) définit l’*apparence* de ce contenu et,
-dans une certaine mesure, son comportement. La mise en page, la polices de caractère, les couleurs,
+cascade (Cascading Style Sheets / CSS) définissent l’*apparence* de ce contenu et,
+dans une certaine mesure, son comportement. La mise en page, la police de caractère, les couleurs,
 tout ça relève des CSS. L’apparence des différents éléments du contenu au survol du curseur,
 ou lorsqu’ils recoivent le focus, ou lorsqu’ils sont activés par un clic, tout ça relève aussi
 des CSS.
