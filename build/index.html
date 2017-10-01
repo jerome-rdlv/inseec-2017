@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
   <head>
@@ -7,270 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>INSEEC 2017</title>
 
-    <style>
-      .highlight table td { padding: 5px; }
-.highlight table pre { margin: 0; }
-.highlight .gh {
-  color: #999999;
-}
-.highlight .sr {
-  color: #f6aa11;
-}
-.highlight .go {
-  color: #888888;
-}
-.highlight .gp {
-  color: #555555;
-}
-.highlight .gs {
-}
-.highlight .gu {
-  color: #aaaaaa;
-}
-.highlight .nb {
-  color: #f6aa11;
-}
-.highlight .cm {
-  color: #75715e;
-}
-.highlight .cp {
-  color: #75715e;
-}
-.highlight .c1 {
-  color: #75715e;
-}
-.highlight .cs {
-  color: #75715e;
-}
-.highlight .c, .highlight .cd {
-  color: #75715e;
-}
-.highlight .err {
-  color: #960050;
-}
-.highlight .gr {
-  color: #960050;
-}
-.highlight .gt {
-  color: #960050;
-}
-.highlight .gd {
-  color: #49483e;
-}
-.highlight .gi {
-  color: #49483e;
-}
-.highlight .ge {
-  color: #49483e;
-}
-.highlight .kc {
-  color: #66d9ef;
-}
-.highlight .kd {
-  color: #66d9ef;
-}
-.highlight .kr {
-  color: #66d9ef;
-}
-.highlight .no {
-  color: #66d9ef;
-}
-.highlight .kt {
-  color: #66d9ef;
-}
-.highlight .mf {
-  color: #ae81ff;
-}
-.highlight .mh {
-  color: #ae81ff;
-}
-.highlight .il {
-  color: #ae81ff;
-}
-.highlight .mi {
-  color: #ae81ff;
-}
-.highlight .mo {
-  color: #ae81ff;
-}
-.highlight .m, .highlight .mb, .highlight .mx {
-  color: #ae81ff;
-}
-.highlight .sc {
-  color: #ae81ff;
-}
-.highlight .se {
-  color: #ae81ff;
-}
-.highlight .ss {
-  color: #ae81ff;
-}
-.highlight .sd {
-  color: #e6db74;
-}
-.highlight .s2 {
-  color: #e6db74;
-}
-.highlight .sb {
-  color: #e6db74;
-}
-.highlight .sh {
-  color: #e6db74;
-}
-.highlight .si {
-  color: #e6db74;
-}
-.highlight .sx {
-  color: #e6db74;
-}
-.highlight .s1 {
-  color: #e6db74;
-}
-.highlight .s {
-  color: #e6db74;
-}
-.highlight .na {
-  color: #a6e22e;
-}
-.highlight .nc {
-  color: #a6e22e;
-}
-.highlight .nd {
-  color: #a6e22e;
-}
-.highlight .ne {
-  color: #a6e22e;
-}
-.highlight .nf {
-  color: #a6e22e;
-}
-.highlight .vc {
-  color: #ffffff;
-}
-.highlight .nn {
-  color: #ffffff;
-}
-.highlight .nl {
-  color: #ffffff;
-}
-.highlight .ni {
-  color: #ffffff;
-}
-.highlight .bp {
-  color: #ffffff;
-}
-.highlight .vg {
-  color: #ffffff;
-}
-.highlight .vi {
-  color: #ffffff;
-}
-.highlight .nv {
-  color: #ffffff;
-}
-.highlight .w {
-  color: #ffffff;
-}
-.highlight {
-  color: #ffffff;
-}
-.highlight .n, .highlight .py, .highlight .nx {
-  color: #ffffff;
-}
-.highlight .ow {
-  color: #f92672;
-}
-.highlight .nt {
-  color: #f92672;
-}
-.highlight .k, .highlight .kv {
-  color: #f92672;
-}
-.highlight .kn {
-  color: #f92672;
-}
-.highlight .kp {
-  color: #f92672;
-}
-.highlight .o {
-  color: #f92672;
-}
-    </style>
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
+    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="javascripts/all.js" type="text/javascript"></script>
+
   </head>
 
-  <body class="index" data-languages="[]">
+  <body class="index">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="Navbar" />
+        <img src="images/navbar.png" />
       </span>
     </a>
-    <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="Logo" />
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" />
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
-      <div id="toc" class="toc-list-h1">
-          <li>
-            <a href="#javascript" class="toc-h1 toc-link" data-title="JavaScript">JavaScript</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#introduction" class="toc-h2 toc-link" data-title="JavaScript">Introduction</a>
-                  </li>
-                  <li>
-                    <a href="#recommandations" class="toc-h2 toc-link" data-title="JavaScript">Recommandations</a>
-                  </li>
-                  <li>
-                    <a href="#inserer-du-javascript" class="toc-h2 toc-link" data-title="JavaScript">Insérer du JavaScript</a>
-                  </li>
-                  <li>
-                    <a href="#base" class="toc-h2 toc-link" data-title="JavaScript">Base</a>
-                  </li>
-                  <li>
-                    <a href="#exercice-1" class="toc-h2 toc-link" data-title="JavaScript">Exercice 1</a>
-                  </li>
-                  <li>
-                    <a href="#exercice-2" class="toc-h2 toc-link" data-title="JavaScript">Exercice 2</a>
-                  </li>
-                  <li>
-                    <a href="#exercice-3" class="toc-h2 toc-link" data-title="JavaScript">Exercice 3</a>
-                  </li>
-                  <li>
-                    <a href="#exercice-4" class="toc-h2 toc-link" data-title="JavaScript">Exercice 4</a>
-                  </li>
-                  <li>
-                    <a href="#exercice-5" class="toc-h2 toc-link" data-title="JavaScript">Exercice 5</a>
-                  </li>
-                  <li>
-                    <a href="#exercice-6" class="toc-h2 toc-link" data-title="JavaScript">Exercice 6</a>
-                  </li>
-                  <li>
-                    <a href="#exercice-7" class="toc-h2 toc-link" data-title="JavaScript">Exercice 7</a>
-                  </li>
-                  <li>
-                    <a href="#exercice-8" class="toc-h2 toc-link" data-title="JavaScript">Exercice 8</a>
-                  </li>
-                  <li>
-                    <a href="#exercice-9" class="toc-h2 toc-link" data-title="JavaScript">Exercice 9</a>
-                  </li>
-                  <li>
-                    <a href="#exercice-10" class="toc-h2 toc-link" data-title="JavaScript">Exercice 10</a>
-                  </li>
-                  <li>
-                    <a href="#exercice-11" class="toc-h2 toc-link" data-title="JavaScript">Exercice 11</a>
-                  </li>
-                  <li>
-                    <a href="#exercice-12" class="toc-h2 toc-link" data-title="JavaScript">Exercice 12</a>
-                  </li>
-                  <li>
-                    <a href="#exercice-13" class="toc-h2 toc-link" data-title="JavaScript">Exercice 13</a>
-                  </li>
-              </ul>
-          </li>
+      <div id="toc">
       </div>
         <ul class="toc-footer">
             <li><a href='https://rue-de-la-vieille.fr'>Me contacter</a></li>
@@ -279,7 +35,10 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='javascript'>JavaScript</h1><h2 id='introduction'>Introduction</h2>
+        <h1 id="javascript">JavaScript</h1>
+
+<h2 id="introduction">Introduction</h2>
+
 <p>JavaScript est différent de Java. Attention, pour abréger JavaScript, utiliser « js », pas « java ».
 Les informations qui suivent sont toutes relative à JavaScript dans un environnement bien particulier :
 le navigateur web. Pour des informations sur JavaScript dans d’autres contextes
@@ -297,7 +56,9 @@ des CSS.</p>
 d’<em>interactivité</em> à la page. On tâchera de ne pas traiter les questions d’apparence et de
 cantonner JavaScript à des changements d’état, par exemple changements de classe sur les
 élément de la page, et on laissera aux CSS la possibilité d’y réagir ou non.</p>
-<h2 id='recommandations'>Recommandations</h2>
+
+<h2 id="recommandations">Recommandations</h2>
+
 <p>Pour travailler efficacement, pour progresser plus rapidement et s’éviter des souffrances
 inutiles :</p>
 
@@ -309,16 +70,19 @@ inutiles :</p>
 <li>Vérifier la console à chaque changement.</li>
 <li>Désactiver le cache.</li>
 </ul>
-<h2 id='inserer-du-javascript'>Insérer du JavaScript</h2>
+
+<h2 id="insérer-du-javascript">Insérer du JavaScript</h2>
+
 <blockquote>
 <p>JavaScript en ligne</p>
 </blockquote>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
     <span class="nx">alert</span><span class="p">(</span><span class="s1">'Hello INSEEC!'</span><span class="p">);</span>
 <span class="nt">&lt;/script&gt;</span>
 </code></pre>
+
 <p>Pour insérer du JavaScript directement dans une page, on utilise la balise script.
-Le JavaScript est inséré entre deux balises, <code>&lt;script&gt;</code> et <code>&lt;/script&gt;</code>.</p>
+Le JavaScript est inséré entre deux balises, <code class="prettyprint">&lt;script&gt;</code> et <code class="prettyprint">&lt;/script&gt;</code>.</p>
 
 <p>Ça s’appelle <em>JavaScript en ligne</em> ou <em>inlined JS</em>. Cette façon de procéder possède
 des inconvénients. Si le même script est utilisé sur toutes les pages du site 
@@ -326,15 +90,20 @@ des inconvénients. Si le même script est utilisé sur toutes les pages du site
 ce qui implique la latence d’une requête supplémentaire et de la bande passante.</p>
 
 <blockquote>
-<p>JavaScript externalisé dans le fichier <code>index.js</code></p>
+<p>JavaScript externalisé dans le fichier <code class="prettyprint">index.js</code></p>
 </blockquote>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"index.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"index.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre>
+
 <p>Alors on préférera insérer du JavaScript en pointant vers un fichier externe.</p>
 
 <p>De cette façon il peut-être mis en cache par le navigateur et n’être chargé
 qu’une seule fois pour tout le site.</p>
-<h2 id='base'>Base</h2><pre class="highlight html tab-html"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<h2 id="exercices">Exercices</h2>
+
+<h3 id="base">Base</h3>
+<pre class="highlight html"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"fr-FR"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;head&gt;</span>
     <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">/&gt;</span>
@@ -376,14 +145,18 @@ qu’une seule fois pour tout le site.</p>
 <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
 </code></pre>
+
 <p>Les exercices sont basés sur ce HTML.</p>
-<h2 id='exercice-1'>Exercice 1</h2><pre class="highlight javascript"><code><span class="nx">alert</span><span class="p">(</span><span class="s1">'Hello INSEEC!'</span><span class="p">);</span>
+
+<h3 id="exercice-1">Exercice 1</h3>
+<pre class="highlight javascript"><code><span class="nx">alert</span><span class="p">(</span><span class="s1">'Hello INSEEC!'</span><span class="p">);</span>
 </code></pre>
-<p>La fonction <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/alert"><code>alert</code></a>
+
+<p>La fonction <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/alert"><code class="prettyprint">alert</code></a>
 permet de créer une boîte de dialogue.
 Pour appeler une fonction on ajoute les parenthèses à son nom.
 Les paramètres d’une fonction sont placés entre ces parenthèses, et séparés par des virgules.
-Ici, la fonction <code>alert</code> prend une chaîne de caractère en paramètre
+Ici, la fonction <code class="prettyprint">alert</code> prend une chaîne de caractère en paramètre
 (du texte entre guillemets).</p>
 
 <blockquote>
@@ -394,12 +167,14 @@ Ici, la fonction <code>alert</code> prend une chaîne de caractère en paramètr
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">param</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
+
 <blockquote>
 <p>Et l’appeler :</p>
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">doSomething</span><span class="p">();</span>
 </code></pre>
-<p>La fonction <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/alert"><code>alert</code></a>
+
+<p>La fonction <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/alert"><code class="prettyprint">alert</code></a>
 est pré-définie par le navigateur. Mais on peut définir nos propres fonctions.</p>
 
 <div style="clear:both"></div>
@@ -412,29 +187,36 @@ est pré-définie par le navigateur. Mais on peut définir nos propres fonctions
 <span class="cm">/* Et ça aussi,
    mais attention à bien le refermer */</span>
 </code></pre>
+
 <p>Il est possible d’ajouter des commentaires en JavaScript.</p>
-<h2 id='exercice-2'>Exercice 2</h2><pre class="highlight javascript"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Hello INSEEC!'</span><span class="p">);</span>
+
+<h3 id="exercice-2">Exercice 2</h3>
+<pre class="highlight javascript"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Hello INSEEC!'</span><span class="p">);</span>
 </code></pre>
+
 <p>Pour afficher un message dans la console de l’inspecteur Web on utilise
-l’objet <code>console</code> mis à disposition par le navigateur, et on appelle sa 
-<em>méthode</em> <code>log</code> qui accepte un ou plusieurs paramètres. Une <em>méthode</em>
+l’objet <code class="prettyprint">console</code> mis à disposition par le navigateur, et on appelle sa 
+<em>méthode</em> <code class="prettyprint">log</code> qui accepte un ou plusieurs paramètres. Une <em>méthode</em>
 est une fonction spécifique à un objet. On accède aux méthodes d’un
-objet grâce à l’opérateur <code>.</code></p>
+objet grâce à l’opérateur <code class="prettyprint">.</code></p>
 
 <p>Pour plus d’informations sur cette méthode, voir la
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Console/log"><code>documentation</code></a></p>
-<h2 id='exercice-3'>Exercice 3</h2><pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">choix</span> <span class="o">=</span> <span class="nx">confirm</span><span class="p">(</span><span class="s1">'Afficher un message ?'</span><span class="p">);</span>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Console/log"><code class="prettyprint">documentation</code></a></p>
+
+<h3 id="exercice-3">Exercice 3</h3>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">choix</span> <span class="o">=</span> <span class="nx">confirm</span><span class="p">(</span><span class="s1">'Afficher un message ?'</span><span class="p">);</span>
 <span class="k">if</span> <span class="p">(</span><span class="nx">choix</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'En v’la un message !'</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
+
 <p>Utiliser un dialogue de confirmation et n’afficher un message dans la console<br>
 que si l’utilisateur clique sur OK.</p>
 
-<p><code>var</code> est un mot clé JS.<br>
-<code>choix</code> est le nom de la variable (une boîte).<br>
-La fonction <code>confirm</code> retourne vrai ou faux.<br>
-<code>if</code> est une structure de contrôle.</p>
+<p><code class="prettyprint">var</code> est un mot clé JS.<br>
+<code class="prettyprint">choix</code> est le nom de la variable (une boîte).<br>
+La fonction <code class="prettyprint">confirm</code> retourne vrai ou faux.<br>
+<code class="prettyprint">if</code> est une structure de contrôle.</p>
 
 <div style="clear:both"></div>
 <pre class="highlight javascript"><code><span class="k">if</span> <span class="p">(</span><span class="nx">test</span><span class="p">)</span> <span class="p">{</span>
@@ -444,16 +226,22 @@ La fonction <code>confirm</code> retourne vrai ou faux.<br>
     <span class="c1">// Ce block est exécuté si test est faux</span>
 <span class="p">}</span>
 </code></pre>
+
 <p>Un bloc de code est contenu entre des accolades.</p>
-<h2 id='exercice-4'>Exercice 4</h2>
+
+<h3 id="exercice-4">Exercice 4</h3>
+
 <p>Voir <a href="#inserer-du-javascript">Insérer du JavaScript</a>.</p>
-<h2 id='exercice-5'>Exercice 5</h2><pre class="highlight javascript"><code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">1000</span><span class="p">;</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+
+<h3 id="exercice-5">Exercice 5</h3>
+<pre class="highlight javascript"><code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">1000</span><span class="p">;</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<p>Créer une boucle <code>for</code> pour afficher les nombres de 1 à 1000.</p>
 
-<p>Une boucle <code>for</code> est composée de trois expressions :</p>
+<p>Créer une boucle <code class="prettyprint">for</code> pour afficher les nombres de 1 à 1000.</p>
+
+<p>Une boucle <code class="prettyprint">for</code> est composée de trois expressions :</p>
 
 <ul>
 <li>Initialisation</li>
@@ -461,7 +249,7 @@ La fonction <code>confirm</code> retourne vrai ou faux.<br>
 <li>Incrémentation</li>
 </ul>
 
-<p><code>for</code> est une autre structure de contrôle de JavaScript.</p>
+<p><code class="prettyprint">for</code> est une autre structure de contrôle de JavaScript.</p>
 
 <div style="clear:both"></div>
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -470,12 +258,15 @@ La fonction <code>confirm</code> retourne vrai ou faux.<br>
     <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre>
-<p>La boucle <code>while</code> est une autre façon de faire des boucles en JavaScript,
+
+<p>La boucle <code class="prettyprint">while</code> est une autre façon de faire des boucles en JavaScript,
 une autre structure de contrôle. Elle s’utilise différemment et répond à
 d’autres cas.</p>
 
-<p>À droite l’équivalent de l’exercice 5 réalisé avec une boucle <code>while</code>. </p>
-<h2 id='exercice-6'>Exercice 6</h2><pre class="highlight javascript"><code><span class="kd">function</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
+<p>À droite l’équivalent de l’exercice 5 réalisé avec une boucle <code class="prettyprint">while</code>. </p>
+
+<h3 id="exercice-6">Exercice 6</h3>
+<pre class="highlight javascript"><code><span class="kd">function</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">fib</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
     <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">max</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">fib</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">fib</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="nx">fib</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
@@ -486,11 +277,12 @@ d’autres cas.</p>
 <span class="kd">var</span> <span class="nx">resultat</span> <span class="o">=</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">resultat</span><span class="p">);</span>
 </code></pre>
+
 <p>Écrire dans la console les 20 premiers nombres de la suite de Fibonacci.</p>
 
-<p><code>fib</code> est un tableau. L’index des tableaux commence à 0.<br>
-<code>fib[0]</code> pour accéder au premier élément.<br>
-<code>return</code> pour renvoyer la valeur.</p>
+<p><code class="prettyprint">fib</code> est un tableau. L’index des tableaux commence à 0.<br>
+<code class="prettyprint">fib[0]</code> pour accéder au premier élément.<br>
+<code class="prettyprint">return</code> pour renvoyer la valeur.</p>
 
 <blockquote>
 <p>Approximation du nombre d’or</p>
@@ -498,22 +290,26 @@ d’autres cas.</p>
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">fib</span> <span class="o">=</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Phi ~ '</span><span class="o">+</span> <span class="p">(</span><span class="nx">fib</span><span class="p">[</span><span class="mi">19</span><span class="p">]</span> <span class="o">/</span> <span class="nx">fib</span><span class="p">[</span><span class="mi">18</span><span class="p">]));</span>
 </code></pre>
+
 <p>À noter que les nombres de la suite de Fibonacci permettent d’approcher le
 <a href="https://en.wikipedia.org/wiki/Golden_ratio#Relationship_to_Fibonacci_sequence">nombre d’or</a>
 lorsqu’on divise le nombre obtenu au rang n par le nombre obtenu au rang n-1.</p>
-<h2 id='exercice-7'>Exercice 7</h2><pre class="highlight javascript"><code><span class="kd">function</span> <span class="nx">showMessage</span><span class="p">()</span> <span class="p">{</span>
+
+<h3 id="exercice-7">Exercice 7</h3>
+<pre class="highlight javascript"><code><span class="kd">function</span> <span class="nx">showMessage</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Bouton cliqué !'</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.navToggle'</span><span class="p">);</span>
 <span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="nx">showMessage</span><span class="p">);</span>
 </code></pre>
+
 <p>Afficher un message dans la console lorsque l’utilisateur clique sur le bouton « Menu ».</p>
 
-<p><code>document</code> est l’élément racine de la page, fourni par le navigateur.<br>
-<code>querySelector</code> est une méthode de <code>document</code> qui prend un sélecteur CSS en paramètre.<br>
-<code>addEventListener</code>  est une méthode de l’élément <code>button</code>.<br>
-Au clic, on exécute la fonction <code>showMessage</code>.</p>
+<p><code class="prettyprint">document</code> est l’élément racine de la page, fourni par le navigateur.<br>
+<code class="prettyprint">querySelector</code> est une méthode de <code class="prettyprint">document</code> qui prend un sélecteur CSS en paramètre.<br>
+<code class="prettyprint">addEventListener</code>  est une méthode de l’élément <code class="prettyprint">button</code>.<br>
+Au clic, on exécute la fonction <code class="prettyprint">showMessage</code>.</p>
 
 <div style="clear:both"></div>
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.navToggle'</span><span class="p">);</span>
@@ -521,23 +317,29 @@ Au clic, on exécute la fonction <code>showMessage</code>.</p>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Bouton cliqué !'</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre>
+
 <p>Cet exemple pourrait aussi s’écrire avec une fonction anonyme ou
 <em>closure</em>. Dans ce cas on passe non plus le nom de la fonction en paramètre
 mais directement la fonction elle-même.</p>
-<h2 id='exercice-8'>Exercice 8</h2><pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.navToggle'</span><span class="p">);</span>
+
+<h3 id="exercice-8">Exercice 8</h3>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.navToggle'</span><span class="p">);</span>
 <span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'body'</span><span class="p">);</span>
     <span class="nx">body</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="s1">'nav-on'</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre>
+
 <p>Lorsque l’utilisateur clique sur le bouton « Menu »,
 ajouter une classe « nav-on » à l’élément body.</p>
 
-<p><code>classList</code> est une propriété de l’élément <code>body</code>.<br>
-<code>toggle()</code> est une méthode de la propriété <code>classList</code>.<br>
-On accède à la propriété d’un objet grâce à l’opérateur <code>.</code><br>
-<code>toggle()</code> ajoute ou retire la classe selon qu’elle est présente ou pas.</p>
-<h2 id='exercice-9'>Exercice 9</h2><pre class="highlight css tab-css"><code><span class="nt">nav</span> <span class="p">{</span>
+<p><code class="prettyprint">classList</code> est une propriété de l’élément <code class="prettyprint">body</code>.<br>
+<code class="prettyprint">toggle()</code> est une méthode de la propriété <code class="prettyprint">classList</code>.<br>
+On accède à la propriété d’un objet grâce à l’opérateur <code class="prettyprint">.</code><br>
+<code class="prettyprint">toggle()</code> ajoute ou retire la classe selon qu’elle est présente ou pas.</p>
+
+<h3 id="exercice-9">Exercice 9</h3>
+<pre class="highlight css"><code><span class="nt">nav</span> <span class="p">{</span>
     <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -545,15 +347,18 @@ On accède à la propriété d’un objet grâce à l’opérateur <code>.</code
     <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre>
+
 <p>Masquage et affichage du menu.</p>
 
 <p>On ne gère que l’interactivité (événement click) en JavaScript.
 Le changement d’affichage est laissé à CSS grâce à la modification d’une classe.
-Le menu est masque par défaut avec <code>display: none</code> et affiché lorsque
-l’élément <code>body</code> possède la classe <code>nav-on</code>.</p>
+Le menu est masque par défaut avec <code class="prettyprint">display: none</code> et affiché lorsque
+l’élément <code class="prettyprint">body</code> possède la classe <code class="prettyprint">nav-on</code>.</p>
 
 <p>Le code JavaScript ne change pas par rapport à l’exercice 8.</p>
-<h2 id='exercice-10'>Exercice 10</h2><pre class="highlight css tab-css"><code><span class="nt">nav</span> <span class="p">{</span>
+
+<h3 id="exercice-10">Exercice 10</h3>
+<pre class="highlight css"><code><span class="nt">nav</span> <span class="p">{</span>
     <span class="nl">background</span><span class="p">:</span> <span class="no">black</span><span class="p">;</span>
     <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
     <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
@@ -562,6 +367,7 @@ l’élément <code>body</code> possède la classe <code>nav-on</code>.</p>
     <span class="nl">right</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre>
+
 <p>À ce stade, il est possible d’afficher / masquer la navigation en cliquant sur le bouton menu.
 C’est bien, mais c’est moche. On voudrait plutôt que le menu :</p>
 
@@ -570,7 +376,9 @@ C’est bien, mais c’est moche. On voudrait plutôt que le menu :</p>
 <li>Apparaisse tout contre le bord droit de la page</li>
 <li>Prenne toute la hauteur de la page</li>
 </ul>
-<h2 id='exercice-11'>Exercice 11</h2><pre class="highlight css tab-css"><code><span class="nt">nav</span> <span class="p">{</span>
+
+<h3 id="exercice-11">Exercice 11</h3>
+<pre class="highlight css"><code><span class="nt">nav</span> <span class="p">{</span>
     <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
     <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
     <span class="nl">right</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
@@ -582,27 +390,30 @@ C’est bien, mais c’est moche. On voudrait plutôt que le menu :</p>
     <span class="nl">transform</span><span class="p">:</span> <span class="n">translateX</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<p>Au lieu d’afficher et masquer le menu avec <code>visibility: hidden</code>
-ou <code>display: none</code>, on le pousse hors écran avec <code>transform: translateX(100%)</code>.</p>
 
-<p>Ici la valeur <code>100%</code> s’exprime en fonction de la largeur de l’élément.
+<p>Au lieu d’afficher et masquer le menu avec <code class="prettyprint">visibility: hidden</code>
+ou <code class="prettyprint">display: none</code>, on le pousse hors écran avec <code class="prettyprint">transform: translateX(100%)</code>.</p>
+
+<p>Ici la valeur <code class="prettyprint">100%</code> s’exprime en fonction de la largeur de l’élément.
 Il est donc décalé de 100% de sa largeur vers la droite. Lorsque
-l’élément <code>body</code> possède la classe <code>nav-on</code>, alors on annule le
+l’élément <code class="prettyprint">body</code> possède la classe <code class="prettyprint">nav-on</code>, alors on annule le
 décalage en le repassant à 0 et le menu apparaît.</p>
 
-<p>La propriété CSS <code>transition</code> est ensuite utilisée pour demander au navigateur
-d’animer la propriété <code>transform</code> lorsque sa valeur change. On indique
-la propriété, <code>transform</code>, que l’on souhaite animer suivie de la durée de
-l’animation, ici <code>300ms</code> pour 300 millisecondes. Il est possible d’exprimer
-cette durée en secondes, par exemple <code>2s</code>.</p>
+<p>La propriété CSS <code class="prettyprint">transition</code> est ensuite utilisée pour demander au navigateur
+d’animer la propriété <code class="prettyprint">transform</code> lorsque sa valeur change. On indique
+la propriété, <code class="prettyprint">transform</code>, que l’on souhaite animer suivie de la durée de
+l’animation, ici <code class="prettyprint">300ms</code> pour 300 millisecondes. Il est possible d’exprimer
+cette durée en secondes, par exemple <code class="prettyprint">2s</code>.</p>
 
 <p>Pour animer plusieurs propriétés, il faut les séparer par des virgules,
-par exemple <code>transform: opacity 200ms, scale 100ms;</code>.</p>
+par exemple <code class="prettyprint">transform: opacity 200ms, scale 100ms;</code>.</p>
 
 <p>À noter que pour des raisons de performances, on tâchera autant que possible
-d’animer uniquement les propriétés <code>transform</code> et <code>opacity</code>. Ces deux
+d’animer uniquement les propriétés <code class="prettyprint">transform</code> et <code class="prettyprint">opacity</code>. Ces deux
 propriétés CSS sont les plus rapides à calculer pour le navigateur.</p>
-<h2 id='exercice-12'>Exercice 12</h2><pre class="highlight html tab-html"><code><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"mailto:jerome@rue-de-la-vieille.fr"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+
+<h3 id="exercice-12">Exercice 12</h3>
+<pre class="highlight html"><code><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"mailto:jerome@rue-de-la-vieille.fr"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;p&gt;</span>
         <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"form_nom"</span><span class="nt">&gt;</span>Nom<span class="nt">&lt;/label&gt;</span>
         <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"nom"</span> <span class="na">id=</span><span class="s">"form_nom"</span><span class="nt">&gt;</span>
@@ -620,6 +431,7 @@ propriétés CSS sont les plus rapides à calculer pour le navigateur.</p>
     <span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
 </code></pre>
+
 <p>Créer un formulaire de contact avec les champs suivants :</p>
 
 <ul>
@@ -630,7 +442,9 @@ propriétés CSS sont les plus rapides à calculer pour le navigateur.</p>
 
 <p>Le formulaire doit être soumis par email
 (il sera modifié au moment du cours PHP pour être envoyé au serveur, peut-être).</p>
-<h2 id='exercice-13'>Exercice 13</h2><pre class="highlight javascript"><code><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+<h3 id="exercice-13">Exercice 13</h3>
+<pre class="highlight javascript"><code><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">form</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'form'</span><span class="p">);</span>
     <span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'submit'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'nom'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">,</span> <span class="s1">'message'</span><span class="p">];</span>
@@ -645,12 +459,13 @@ propriétés CSS sont les plus rapides à calculer pour le navigateur.</p>
     <span class="p">});</span>
 <span class="p">})();</span>
 </code></pre>
+
 <p>Écouter la soumission du formulaire et la bloquer si un des champs n’est pas renseigné.</p>
 
-<p>On récupère l’élément <code>form</code> et on place un écouteur dessus, pour l’événement <code>submit</code>.
-On n’écoute pas l’événement <code>clic</code> du bouton de soumission parce que le formulaire
+<p>On récupère l’élément <code class="prettyprint">form</code> et on place un écouteur dessus, pour l’événement <code class="prettyprint">submit</code>.
+On n’écoute pas l’événement <code class="prettyprint">clic</code> du bouton de soumission parce que le formulaire
 peut-être soumis par d’autres moyens, notamment une validation dans un des champs text
-(appui sur la touche <code>[ENTER]</code> lorsqu’un des champs texte a le <em>focus</em>).</p>
+(appui sur la touche <code class="prettyprint">[ENTER]</code> lorsqu’un des champs texte a le <em>focus</em>).</p>
 
 <p>Lorsque le formulaire est soumis, on teste les champs un par un. Puisque le traitement
 est identique pour chaque champ, on a recourt à une boucle pour ne coder le travail
@@ -658,9 +473,11 @@ qu’une seule fois :</p>
 
 <ul>
 <li>Récupération du champ à partir de son nom</li>
-<li>Test de la valeur saisie (<code>field.value === &#39;&#39;</code>)</li>
+<li>Test de la valeur saisie (<code class="prettyprint">field.value === &#39;&#39;</code>)</li>
 <li>Annulation de la soumission si le champ est vide, affichage d’une erreur et sortie de la boucle</li>
 </ul>
+
+<h1 id="wordpress">WordPress</h1>
 
       </div>
       <div class="dark-box">

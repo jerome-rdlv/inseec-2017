@@ -72,7 +72,9 @@ Alors on préférera insérer du JavaScript en pointant vers un fichier externe.
 De cette façon il peut-être mis en cache par le navigateur et n’être chargé
 qu’une seule fois pour tout le site.
 
-## Base
+## Exercices
+
+### Base
 
 ```html
 <!DOCTYPE html>
@@ -120,7 +122,7 @@ qu’une seule fois pour tout le site.
 
 Les exercices sont basés sur ce HTML.
 
-## Exercice 1
+### Exercice 1
 
 ```js
 alert('Hello INSEEC!');
@@ -164,7 +166,7 @@ est pré-définie par le navigateur. Mais on peut définir nos propres fonctions
 
 Il est possible d’ajouter des commentaires en JavaScript.
 
-## Exercice 2
+### Exercice 2
 
 ```js
 console.log('Hello INSEEC!');
@@ -179,7 +181,7 @@ objet grâce à l’opérateur `.`
 Pour plus d’informations sur cette méthode, voir la
 [`documentation`](https://developer.mozilla.org/en-US/docs/Web/API/Console/log)
 
-## Exercice 3
+### Exercice 3
 
 ```js
 var choix = confirm('Afficher un message ?');
@@ -209,11 +211,11 @@ else {
 
 Un bloc de code est contenu entre des accolades.
 
-## Exercice 4
+### Exercice 4
 
 Voir [Insérer du JavaScript](#inserer-du-javascript).
 
-## Exercice 5
+### Exercice 5
 
 ```js
 for (var i = 1; i <= 1000; i = i + 1) {
@@ -247,7 +249,7 @@ d’autres cas.
 
 À droite l’équivalent de l’exercice 5 réalisé avec une boucle `while`. 
 
-## Exercice 6
+### Exercice 6
 
 ```js
 function fibonacci(max) {
@@ -279,7 +281,7 @@ console.log('Phi ~ '+ (fib[19] / fib[18]));
 [nombre d’or](https://en.wikipedia.org/wiki/Golden_ratio#Relationship_to_Fibonacci_sequence)
 lorsqu’on divise le nombre obtenu au rang n par le nombre obtenu au rang n-1.
 
-## Exercice 7
+### Exercice 7
 
 ```js
 function showMessage() {
@@ -309,7 +311,7 @@ Cet exemple pourrait aussi s’écrire avec une fonction anonyme ou
 *closure*. Dans ce cas on passe non plus le nom de la fonction en paramètre
 mais directement la fonction elle-même.
 
-## Exercice 8
+### Exercice 8
 
 
 ```js
@@ -328,7 +330,7 @@ ajouter une classe « nav-on » à l’élément body.
 On accède à la propriété d’un objet grâce à l’opérateur `.`  
 `toggle()` ajoute ou retire la classe selon qu’elle est présente ou pas.
 
-## Exercice 9
+### Exercice 9
 
 ```css
 nav {
@@ -349,7 +351,7 @@ l’élément `body` possède la classe `nav-on`.
 
 Le code JavaScript ne change pas par rapport à l’exercice 8.
 
-## Exercice 10
+### Exercice 10
 
 ```css
 nav {
@@ -369,7 +371,7 @@ C’est bien, mais c’est moche. On voudrait plutôt que le menu :
 * Apparaisse tout contre le bord droit de la page
 * Prenne toute la hauteur de la page
 
-## Exercice 11
+### Exercice 11
 
 ```css
 nav {
@@ -406,7 +408,7 @@ par exemple `transform: opacity 200ms, scale 100ms;`.
 d’animer uniquement les propriétés `transform` et `opacity`. Ces deux
 propriétés CSS sont les plus rapides à calculer pour le navigateur.
 
-## Exercice 12
+### Exercice 12
 
 ```html
 <form action="mailto:jerome@rue-de-la-vieille.fr" method="post">
@@ -437,7 +439,7 @@ Créer un formulaire de contact avec les champs suivants :
 Le formulaire doit être soumis par email
 (il sera modifié au moment du cours PHP pour être envoyé au serveur, peut-être).
 
-## Exercice 13
+### Exercice 13
 
 ```js
 (function () {
@@ -470,3 +472,7 @@ qu’une seule fois :
 * Récupération du champ à partir de son nom
 * Test de la valeur saisie (`field.value === ''`)
 * Annulation de la soumission si le champ est vide, affichage d’une erreur et sortie de la boucle
+
+
+# WordPress
+

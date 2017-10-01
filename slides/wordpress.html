@@ -1,0 +1,284 @@
+<html>
+<head>
+    <title>WordPress</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="reveal/css/reveal.css">
+    <link rel="stylesheet" href="reveal/css/theme/league.css">
+    <link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'reveal/css/print/pdf.css' : 'reveal/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section data-markdown>
+            <script type="text/template">
+                # Rappels
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                <pre style="text-align: center; font-size: 26pt;"><code>&lt;script&gt;</code></pre>
+                
+                ## Qu’est-ce que c’est que ça ?
+                
+                <aside class="notes">
+                    Une balise script ouvrante **HTML**  
+                    Peut apparaître dans un fichier `HTML` (`.html`) ou dans un fichier `PHP` (`.php`).  
+                    Pas dans un fichier JavaScript (`.js`)
+                </aside>
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## HTML
+                
+                ```html
+                <div>
+                    <h3>Un titre</h3>
+                    <p>Un paragraphe</p>
+                </div>
+                ```
+
+                <aside class="notes">
+                    Balisage, des balises ouvrantes et fermantes, quelques
+                    auto-fermantes (`<br/>`, `<img/>`, `<meta/>`).  
+                    Peut être représenté sous forme d’arbre (dans l’inspecteur).  
+                    Définit le sens du document. Interprété par le navigateur web.
+                </aside>
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## CSS
+                
+                ```css
+                body.nav-on nav {
+                    transform: translateX(0);
+                }
+                ```
+
+                <aside class="notes">
+                    Sélecteurs correspondants à des *nœuds* du DOM (Document Object Model), 
+                    c’est à dire à des élements de l’arbre créé à partir des balises HTML.  
+                    Propriétés et valeurs.  
+                    Spécifient l’apparence du document. Interprétés par le navigateur web.
+                </aside>
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## JavaScript
+                
+                ```js
+                var button = document.querySelector('.toggleButton');
+                button.addEventListener('click', function (e) {
+                    document.querySelector('body').classList.toggle('nav-on');
+                });
+                ```
+
+                <aside class="notes">
+                    Pour ajouter de l’interactivité, déclancher des changements
+                    dans la page. Le JavaScript s’exécute côté client, dans le
+                    navigateur web.
+                </aside>
+            </script>
+        </section>
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## PHP
+                    
+                    ```php
+                    <?php
+                    if (empty($_POST['message'])) {
+                        echo '<p class="error">Merci de fournir un message</p>';
+                    }
+                    ```
+    
+                    <aside class="notes">
+                        S’ouvre avec un *tag* `<?php` et se referme (éventuellement) avec
+                        un tag de fermeture `?>`  
+                        Exécuté côté serveur. Permet de générer le document HTML
+                        dynamiquement (à la demande), et de traiter les données envoyées par
+                        le document (formulaires).  
+                        Tout ce qui est hors des tags est directement envoyé au client
+                        sans interprétation.
+                    </aside>
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## JavaScript ≠ PHP
+                    
+                    Mais ressemblances de syntaxe…
+    
+                    <aside class="notes">
+                        JavaScript côté client. PHP côté serveur.  
+                        Pour accéder aux propriétés et méthodes :  
+                        - Le point (`.`) en JavaScript (`node.classList`)  
+                        - La flèche (`->`) en PHP (`$connexion->close()`)
+                    </aside>
+                </script>
+            </section>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                # WordPress
+                
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Exécution
+                
+                Trois grandes étapes :
+                
+                1. Chargement
+                2. Requête
+                3. Template
+                
+                <aside class="notes">
+                    1. wp-config, constantes, etc.  
+                    2. fonction de l’URL, requête DB pour récupérer les posts  
+                    3. appel du thème avec les données
+                </aside>
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Extensibilité
+                
+                La personnalisation repose sur :
+                
+                * Thèmes (templates, hooks)
+                * Plugins (hooks)
+                
+                <aside class="notes">
+                    On ne touche pas au cœur sinon on casse les MAJ et extensions tierces.  
+                    Thème pour custom apparence. Plugins pour autres fonctionnalités.  
+                    Hooks : mécanisme principal dans thèmes et plugins.
+                </aside>
+            </script>
+        </section>
+        <section>
+            <section data-markdown>
+                <script type="text/template">
+                    ## Templates
+                    
+                    Personnalisation du balisage des pages.  
+                    Voir [WordPress Template Hierarchy](https://wphierarchy.com/)
+                    
+                </script>
+            </section>
+            <section data-background="wp-hierarchy.png" data-background-size="contain">
+            </section>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Hook *action*
+                
+                ```php
+                add_action('wp_enqueue_scripts', function () {
+                    // do something
+                });
+                ```
+                
+                <aside class="notes">
+                    Pour exécuter du code à un moment donné de l’exécution
+                    de WordPress.
+                </aside>
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Hook *filter*
+                
+                ```php
+                add_filter('the_content', function ($content) {
+                    return $content . '<p>© INSEEC 2017</p>';
+                });
+                ```
+                
+                <aside class="notes">
+                    Pour modifier une valeur à un moment donné de l’exécution
+                    de WordPress.
+                </aside>
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                On trouve ces *points d’accroche* 
+                dans la [référence des actions](https://codex.wordpress.org/Plugin_API/Action_Reference)
+                et dans la [référence des filtres](https://codex.wordpress.org/Plugin_API/Filter_Reference)
+                
+                Ou en explorant le code de WordPress :
+                
+                ```
+                do_action();
+                apply_filters();
+                ```
+            </script>
+        </section>
+        <section>
+            <h2>Types de contenus</h2>
+                
+            <p class="fragment current-visible">???</p>
+            <ul>
+                <li class="fragment">Post</li>
+                <li class="fragment">Page</li>
+                <li class="fragment">Revision</li>
+                <li class="fragment">Attachment</li>
+            </ul>
+            
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Custom Post Types
+                
+                On peut définir nos types de contenus personnalisés
+                
+                ```php
+                register_post_type('mon_type_perso', []);
+                ```
+                
+                Voir la doc de
+                [`register_post_type`](https://codex.wordpress.org/Function_Reference/register_post_type)
+            </script>
+        </section>
+    </div>
+</div>
+<script src="reveal/lib/js/head.min.js"></script>
+<script src="reveal/js/reveal.js"></script>
+<script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        slideNumber: 'c/t',
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            { src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'reveal/plugin/zoom-js/zoom.js', async: true },
+            { src: 'reveal/plugin/notes/notes.js', async: true }
+        ]
+    });
+
+</script>
+</body>
+</html>
