@@ -476,3 +476,103 @@ qu’une seule fois :
 
 # WordPress
 
+## Création des événements
+
+Le site Siècle Digital présente une liste d’événements.
+Ces événements ne sont ni *post* ni *page*, ce sont des contenus personnalisés. WordPress permet
+de déclarer et d’administrer facilement des *types de contenus personnalisés* ou 
+[`Custom Post Type`](https://codex.wordpress.org/Post_Types).
+
+Pour ajouter la gestion des événements voulue on va donc :
+
+1. Créer un nouveau type de post pour nos événements
+1. Ajouter au menu le lien vers la liste de nos événements
+1. Créer des templates qui permettront de personnaliser l’affichage (le balisage) des événements
+1. Personnaliser les styles associés à ces templates pour nous rapprocher de l’affichage de
+    [Siècle Digital](https://siecledigital.fr/evenements/)
+
+### Création d’un Custom Post Type
+
+> Dans `wp-content/mu-plugins/instance.php`
+
+```php
+<?php
+register_post_type(
+    'sd_event', // nom informatique unique de notre CPT,
+    array(
+        'label' => 'Événements', // nom humain de notre CPT, affiché dans l’administration,
+        'public' => true, // permet d’activer les interfaces de gestion de nos événements
+        'has_archive' => true, // permet d’activer la fonctionnalité page d’archive
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail', // permet d’associer une image à nos événements
+        )
+    )
+);
+```
+
+Un type de post personnalisé est un contenu. On veut découpler la définition de ce contenu
+du thème pour que l’administrateur du site puisse changer de thème sans perdre son contenu.
+On souhaite aussi éviter que l’administrateur puisse perdre son contenu en désactivant une extension (plugin)
+par inadvertance. On va donc enregistrer notre type personnalisé dans un
+[`mu_plugin`](https://codex.wordpress.org/Must_Use_Plugins)
+(plugin obligatoire, indispensable, toujours chargé par WordPress, inaccessible dans l’interface de gestion des plugins).
+
+Pour créer un `mu_plugin` on crée un dossier `mu-plugins` dans le dossier `wp-content`, donc à côté des
+dossiers `themes` et `plugins`. Dans ce dossier, on place un fichier `instance.php` avec le
+code d’enregistrement du nouveau type de post (fonction
+[register_post_type](https://codex.wordpress.org/Function_Reference/register_post_type)).
+
+Attention à distinguer le *nom informatique* utilisé par le système de WordPress, qui doit être
+sans caractères spéciaux, sans espaces et unique, du *nom humain* affiché dans l’interface
+d’administration. Comme le *nom informatique* doit être unique, on diminue les risques de collision
+en le préfixant. Ici on utilise *sd_* soit les initiales de *Siècle Digital* suivi d’un « *_* »
+(« underscore » ou « tiret bas » ou « blanc souligné » ou « tiret du 8 » pour les noobs
+qui ne connaissent que Windows les pauvres).
+
+À noter que le paramètre `has_archive` permet de faire apparaître la page d’archive au niveau de
+l’interface de gestion des menus (faire « View all » ou « Afficher tout » pour trouver ça).
+
+<aside class="warning">
+    Pour que WordPress prenne bien en compte les nouvelles URL liées à notre
+    nouveau type de contenu, il faut aller dans les Réglages des Permalinks
+    et enregistrer la page, telle quelle. 
+</aside>
+
+### Création des templates
+
+> Base pour le template d’archive
+
+```php
+<?php get_header() ?>
+<?php while (have_posts()): the_post() ?>
+    <article>
+        <h2><?php the_title() ?></h2>
+        <p><?php echo get_the_date(get_option('date_format')) ?></p>
+        <div><?php the_content() ?></div>
+    </article>
+<?php endwhile ?>
+<?php get_footer() ?>
+
+```
+
+> Base pour le template single
+
+```php
+<?php get_header() ?>
+<?php the_post() ?>
+<div>
+    <h1><?php the_title() ?></h1>
+    <p><?php echo get_the_date(get_option('date_format')) ?></p>
+    <div><?php the_content() ?></div>
+</div>
+<?php get_footer() ?>
+```
+
+Utiliser la [hiérarchie des templates de WordPress](https://wphierarchy.com/) et créer
+les bons templates dans le thème enfant :
+
+* Un template prenant en charge l’affichage de la liste des événements (donc entrée *Archive*)
+* Un template prenant en charge l’affichage d’un événement tout seul (donc entrée *Singular Page*)
+

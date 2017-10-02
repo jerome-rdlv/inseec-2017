@@ -479,6 +479,110 @@ qu’une seule fois :</p>
 
 <h1 id="wordpress">WordPress</h1>
 
+<h2 id="création-des-événements">Création des événements</h2>
+
+<p>Le site Siècle Digital présente une liste d’événements.
+Ces événements ne sont ni <em>post</em> ni <em>page</em>, ce sont des contenus personnalisés. WordPress permet
+de déclarer et d’administrer facilement des <em>types de contenus personnalisés</em> ou 
+<a href="https://codex.wordpress.org/Post_Types"><code class="prettyprint">Custom Post Type</code></a>.</p>
+
+<p>Pour ajouter la gestion des événements voulue on va donc :</p>
+
+<ol>
+<li>Créer un nouveau type de post pour nos événements</li>
+<li>Ajouter au menu le lien vers la liste de nos événements</li>
+<li>Créer des templates qui permettront de personnaliser l’affichage (le balisage) des événements</li>
+<li>Personnaliser les styles associés à ces templates pour nous rapprocher de l’affichage de
+<a href="https://siecledigital.fr/evenements/">Siècle Digital</a></li>
+</ol>
+
+<h3 id="création-d’un-custom-post-type">Création d’un Custom Post Type</h3>
+
+<blockquote>
+<p>Dans <code class="prettyprint">wp-content/mu-plugins/instance.php</code></p>
+</blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nx">register_post_type</span><span class="p">(</span>
+    <span class="s1">'sd_event'</span><span class="p">,</span> <span class="c1">// nom informatique unique de notre CPT,
+</span>    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'label'</span> <span class="o">=&gt;</span> <span class="s1">'Événements'</span><span class="p">,</span> <span class="c1">// nom humain de notre CPT, affiché dans l’administration,
+</span>        <span class="s1">'public'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// permet d’activer les interfaces de gestion de nos événements
+</span>        <span class="s1">'has_archive'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// permet d’activer la fonctionnalité page d’archive
+</span>        <span class="s1">'supports'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">'title'</span><span class="p">,</span>
+            <span class="s1">'editor'</span><span class="p">,</span>
+            <span class="s1">'thumbnail'</span><span class="p">,</span> <span class="c1">// permet d’associer une image à nos événements
+</span>        <span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+</code></pre>
+
+<p>Un type de post personnalisé est un contenu. On veut découpler la définition de ce contenu
+du thème pour que l’administrateur du site puisse changer de thème sans perdre son contenu.
+On souhaite aussi éviter que l’administrateur puisse perdre son contenu en désactivant une extension (plugin)
+par inadvertance. On va donc enregistrer notre type personnalisé dans un
+<a href="https://codex.wordpress.org/Must_Use_Plugins"><code class="prettyprint">mu_plugin</code></a>
+(plugin obligatoire, indispensable, toujours chargé par WordPress, inaccessible dans l’interface de gestion des plugins).</p>
+
+<p>Pour créer un <code class="prettyprint">mu_plugin</code> on crée un dossier <code class="prettyprint">mu-plugins</code> dans le dossier <code class="prettyprint">wp-content</code>, donc à côté des
+dossiers <code class="prettyprint">themes</code> et <code class="prettyprint">plugins</code>. Dans ce dossier, on place un fichier <code class="prettyprint">instance.php</code> avec le
+code d’enregistrement du nouveau type de post (fonction
+<a href="https://codex.wordpress.org/Function_Reference/register_post_type">register_post_type</a>).</p>
+
+<p>Attention à distinguer le <em>nom informatique</em> utilisé par le système de WordPress, qui doit être
+sans caractères spéciaux, sans espaces et unique, du <em>nom humain</em> affiché dans l’interface
+d’administration. Comme le <em>nom informatique</em> doit être unique, on diminue les risques de collision
+en le préfixant. Ici on utilise <em>sd_</em> soit les initiales de <em>Siècle Digital</em> suivi d’un « <em>_</em> »
+(« underscore » ou « tiret bas » ou « blanc souligné » ou « tiret du 8 » pour les noobs
+qui ne connaissent que Windows les pauvres).</p>
+
+<p>À noter que le paramètre <code class="prettyprint">has_archive</code> permet de faire apparaître la page d’archive au niveau de
+l’interface de gestion des menus (faire « View all » ou « Afficher tout » pour trouver ça).</p>
+
+<aside class="warning">
+    Pour que WordPress prenne bien en compte les nouvelles URL liées à notre
+    nouveau type de contenu, il faut aller dans les Réglages des Permalinks
+    et enregistrer la page, telle quelle. 
+</aside>
+
+<h3 id="création-des-templates">Création des templates</h3>
+
+<blockquote>
+<p>Base pour le template d’archive</p>
+</blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">()</span> <span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span><span class="o">:</span> <span class="nx">the_post</span><span class="p">()</span> <span class="cp">?&gt;</span>
+    <span class="nt">&lt;article&gt;</span>
+        <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;p&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_the_date</span><span class="p">(</span><span class="nx">get_option</span><span class="p">(</span><span class="s1">'date_format'</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;div&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/article&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">endwhile</span> <span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">()</span> <span class="cp">?&gt;</span>
+
+</code></pre>
+
+<blockquote>
+<p>Base pour le template single</p>
+</blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">()</span> <span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">the_post</span><span class="p">()</span> <span class="cp">?&gt;</span>
+<span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;h1&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_the_date</span><span class="p">(</span><span class="nx">get_option</span><span class="p">(</span><span class="s1">'date_format'</span><span class="p">))</span> <span class="cp">?&gt;</span><span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;div&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">()</span> <span class="cp">?&gt;</span>
+</code></pre>
+
+<p>Utiliser la <a href="https://wphierarchy.com/">hiérarchie des templates de WordPress</a> et créer
+les bons templates dans le thème enfant :</p>
+
+<ul>
+<li>Un template prenant en charge l’affichage de la liste des événements (donc entrée <em>Archive</em>)</li>
+<li>Un template prenant en charge l’affichage d’un événement tout seul (donc entrée <em>Singular Page</em>)</li>
+</ul>
+
       </div>
       <div class="dark-box">
       </div>
