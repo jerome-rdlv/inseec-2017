@@ -586,14 +586,31 @@ enregistrant une fonction sur ce *hook* avec `add_action('sd_events_filters', fu
 
 ## Affichage d’une date personnalisée
 
-> Dans le template
+> Dans functions.php
 
 ```php
 <?php
-$dateAcf = get_field('date_begin');
-$date = DateTime::createFromFormat('Ymd', $dateAcf);
-$period = $date->format('F Y');
-?>
+/**
+ * Retourne la période Mois, Année d’une date ACF.
+ * Fonctionne si le format d’enregistrement ACF est yymmdd.
+ * @param string $name Nom du champ ACF
+ */
+function sd_get_period($name){
+    $date = DateTime::createFromFormat('Ymd', get_field($name));
+    if ($date) {
+        $period = $date->format('F Y');
+    }
+    else {
+        $period = '';
+    }
+    return $period;
+}
+```
+
+> Dans le template
+
+```php
+<?php $period = sd_get_period('date_begin') ?>
 <p><?php echo $period ?></p>
 ```
 
