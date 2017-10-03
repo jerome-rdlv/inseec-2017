@@ -602,7 +602,7 @@ enregistrant une fonction sur ce <em>hook</em> avec <code class="prettyprint">ad
  * @param string $name Nom du champ ACF
  */</span>
 <span class="k">function</span> <span class="nf">sd_get_period</span><span class="p">(</span><span class="nv">$name</span><span class="p">){</span>
-    <span class="nv">$date</span> <span class="o">=</span> <span class="nx">DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">'Ymd'</span><span class="p">,</span> <span class="nx">get_field</span><span class="p">(</span><span class="nv">$name</span><span class="p">));</span>
+    <span class="nv">$date</span> <span class="o">=</span> <span class="nx">DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">'Ymd'</span><span class="p">,</span> <span class="nx">get_field</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">));</span>
     <span class="k">if</span> <span class="p">(</span><span class="nv">$date</span><span class="p">)</span> <span class="p">{</span>
         <span class="nv">$period</span> <span class="o">=</span> <span class="nv">$date</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="s1">'F Y'</span><span class="p">);</span>
     <span class="p">}</span>
@@ -696,8 +696,8 @@ utilisables dans une <code class="prettyprint">WP_Meta_Query</code>.</p>
 </code></pre>
 
 <p>On se branche sur le <em>hook</em> <code class="prettyprint">the_excerpt</code> et on ajoute
-le lien à la valeur transmise (on modifie cette valeur 
-grâce au <em>hook</em> de type filtre.</p>
+le lien à la valeur transmise (on modifie cette valeur,
+l’extrait du post, grâce au <em>hook</em> de type filtre).</p>
 
       </div>
       <div class="dark-box">

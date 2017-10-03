@@ -596,7 +596,7 @@ enregistrant une fonction sur ce *hook* avec `add_action('sd_events_filters', fu
  * @param string $name Nom du champ ACF
  */
 function sd_get_period($name){
-    $date = DateTime::createFromFormat('Ymd', get_field($name));
+    $date = DateTime::createFromFormat('Ymd', get_field($name, false, false));
     if ($date) {
         $period = $date->format('F Y');
     }
@@ -690,5 +690,5 @@ add_filter('the_excerpt', function ($exercpt) {
 ```
 
 On se branche sur le *hook* `the_excerpt` et on ajoute
-le lien à la valeur transmise (on modifie cette valeur 
-grâce au *hook* de type filtre.
+le lien à la valeur transmise (on modifie cette valeur,
+l’extrait du post, grâce au *hook* de type filtre).
