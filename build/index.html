@@ -590,6 +590,42 @@ insérer ici le formulaire de recherche / filtrage des événements : <code cla
 <p>Du code tiers — plugin ou mu-plugin — pourra alors exécuter ce que souhaité en
 enregistrant une fonction sur ce <em>hook</em> avec <code class="prettyprint">add_action(&#39;sd_events_filters&#39;, function () {})</code>.</p>
 
+<h3 id="affichage-d’une-date-personnalisée">Affichage d’une date personnalisée</h3>
+
+<blockquote>
+<p>Dans functions.php</p>
+</blockquote>
+<pre class="highlight php"><code>// works if save format is yymmdd, convert field value to DateTime
+add_action('acf/load_value', function ($value, $post_id, $field) {
+    if ($field['type'] == 'date_picker') {
+        $value = DateTime::createFromFormat('Ymd', $value);
+    }
+    return $value;
+}, 10, 3);
+</code></pre>
+
+<blockquote>
+<p>Dans le template
+<code class="prettyprint">php
+&lt;?php $period = get_field(&#39;date_begin&#39;)-&gt;format(&#39;F Y&#39;) ?&gt;
+&lt;p&gt;&lt;?php echo $displayDate ?&gt;&lt;/p&gt;
+</code></p>
+</blockquote>
+
+<p>La date de survenue des événements est affichée entre les événements dans la liste
+des événements sur le modèle Siècle Digital.</p>
+
+<p>Pour pouvoir formatter simplement cette date dans le format souhaité,
+on va utiliser un hook sur la valeur de date retournée par ACF
+pour la convertir en objet <code class="prettyprint">DateTime</code> PHP.</p>
+
+<p>On peut ensuite utiliser le second bloc de code dans le template pour
+obtenir la valeur, comme avant, et la formatter comme voulu.</p>
+
+<p>À ce stade, la période (par exemple « Novembre 2017 ») va apparaître
+entre chaque article. Je vous laisse chercher comment n’afficher cette
+période que lorsqu’elle change.</p>
+
       </div>
       <div class="dark-box">
       </div>

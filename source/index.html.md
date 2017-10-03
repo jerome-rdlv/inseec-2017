@@ -582,3 +582,37 @@ insérer ici le formulaire de recherche / filtrage des événements : `do_actio
 
 Du code tiers — plugin ou mu-plugin — pourra alors exécuter ce que souhaité en
 enregistrant une fonction sur ce *hook* avec `add_action('sd_events_filters', function () {})`.
+
+
+## Affichage d’une date personnalisée
+
+> Dans functions.php
+
+```php
+// works if save format is yymmdd, convert field value to DateTime
+add_action('acf/load_value', function ($value, $post_id, $field) {
+    if ($field['type'] == 'date_picker') {
+        $value = DateTime::createFromFormat('Ymd', $value);
+    }
+    return $value;
+}, 10, 3);
+```
+> Dans le template
+```php
+<?php $period = get_field('date_begin')->format('F Y') ?>
+<p><?php echo $displayDate ?></p>
+```
+
+La date de survenue des événements est affichée entre les événements dans la liste
+des événements sur le modèle Siècle Digital.
+
+Pour pouvoir formatter simplement cette date dans le format souhaité,
+on va utiliser un hook sur la valeur de date retournée par ACF
+pour la convertir en objet `DateTime` PHP.
+
+On peut ensuite utiliser le second bloc de code dans le template pour
+obtenir la valeur, comme avant, et la formatter comme voulu.
+
+À ce stade, la période (par exemple « Novembre 2017 ») va apparaître
+entre chaque article. Je vous laisse chercher comment n’afficher cette
+période que lorsqu’elle change.
