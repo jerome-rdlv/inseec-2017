@@ -602,7 +602,7 @@ add_action('acf/load_value', function ($value, $post_id, $field) {
 
 ```php
 <?php $period = get_field('date_begin')->format('F Y') ?>
-<p><?php echo $displayDate ?></p>
+<p><?php echo $period ?></p>
 ```
 
 La date de survenue des événements est affichée entre les événements dans la liste
