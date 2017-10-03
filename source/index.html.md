@@ -586,7 +586,7 @@ enregistrant une fonction sur ce *hook* avec `add_action('sd_events_filters', fu
 
 ## Affichage d’une date personnalisée
 
-> Dans functions.php
+> Dans functions.php pour la période
 
 ```php
 <?php
@@ -607,11 +607,30 @@ function sd_get_period($name){
 }
 ```
 
+> Toujours dans functions.php pour un format spécifique
+
+```php
+<?php
+function sd_get_acf_date($name, $format = 'd F Y')
+{
+    $date = DateTime::createFromFormat('Ymd', get_field($name, false, false));
+    if ($date) {
+        $formatted = $date->format($format);
+    }
+    else {
+        $formatted = '';
+    }
+    return $formatted;
+}
+```
+
 > Dans le template
 
 ```php
 <?php $period = sd_get_period('date_begin') ?>
 <p><?php echo $period ?></p>
+
+<span><?php echo sd_get_acf_date('date_begin', 'd m Y') ?>
 ```
 
 La date de survenue des événements est affichée entre les événements dans la liste
@@ -627,6 +646,11 @@ obtenir la valeur, comme avant, et la formatter comme voulu.
 À ce stade, la période (par exemple « Novembre 2017 ») va apparaître
 entre chaque article. Je vous laisse chercher comment n’afficher cette
 période que lorsqu’elle change.
+
+Pour formatter la date d’un champ ACF, on utilise la fonction
+`sd_get_acf_date`. Elle prend en premier paramètre le nom du champ,
+en second paramètre le format
+(voir [PHP `date()`](http://php.net/manual/fr/function.date.php));
 
 ## Modifier l’ordre des événements
 

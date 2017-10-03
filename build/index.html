@@ -593,7 +593,7 @@ enregistrant une fonction sur ce <em>hook</em> avec <code class="prettyprint">ad
 <h2 id="affichage-d’une-date-personnalisée">Affichage d’une date personnalisée</h2>
 
 <blockquote>
-<p>Dans functions.php</p>
+<p>Dans functions.php pour la période</p>
 </blockquote>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="sd">/**
@@ -614,10 +614,29 @@ enregistrant une fonction sur ce <em>hook</em> avec <code class="prettyprint">ad
 </code></pre>
 
 <blockquote>
+<p>Toujours dans functions.php pour un format spécifique</p>
+</blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">sd_get_acf_date</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$format</span> <span class="o">=</span> <span class="s1">'d F Y'</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$date</span> <span class="o">=</span> <span class="nx">DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">'Ymd'</span><span class="p">,</span> <span class="nx">get_field</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$date</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$formatted</span> <span class="o">=</span> <span class="nv">$date</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nv">$format</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="nv">$formatted</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nv">$formatted</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<blockquote>
 <p>Dans le template</p>
 </blockquote>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span> <span class="nv">$period</span> <span class="o">=</span> <span class="nx">sd_get_period</span><span class="p">(</span><span class="s1">'date_begin'</span><span class="p">)</span> <span class="cp">?&gt;</span>
 <span class="nt">&lt;p&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$period</span> <span class="cp">?&gt;</span><span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;span&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">sd_get_acf_date</span><span class="p">(</span><span class="s1">'date_begin'</span><span class="p">,</span> <span class="s1">'d m Y'</span><span class="p">)</span> <span class="cp">?&gt;</span>
 </code></pre>
 
 <p>La date de survenue des événements est affichée entre les événements dans la liste
@@ -633,6 +652,11 @@ obtenir la valeur, comme avant, et la formatter comme voulu.</p>
 <p>À ce stade, la période (par exemple « Novembre 2017 ») va apparaître
 entre chaque article. Je vous laisse chercher comment n’afficher cette
 période que lorsqu’elle change.</p>
+
+<p>Pour formatter la date d’un champ ACF, on utilise la fonction
+<code class="prettyprint">sd_get_acf_date</code>. Elle prend en premier paramètre le nom du champ,
+en second paramètre le format
+(voir <a href="http://php.net/manual/fr/function.date.php">PHP <code class="prettyprint">date()</code></a>);</p>
 
 <h2 id="modifier-l’ordre-des-événements">Modifier l’ordre des événements</h2>
 
