@@ -586,22 +586,14 @@ enregistrant une fonction sur ce *hook* avec `add_action('sd_events_filters', fu
 
 ## Affichage d’une date personnalisée
 
-> Dans functions.php
-
-```php
-<?php
-// works if save format is yymmdd, convert field value to DateTime
-add_action('acf/load_value', function ($value, $post_id, $field) {
-    if ($field['type'] == 'date_picker') {
-        $value = DateTime::createFromFormat('Ymd', $value);
-    }
-    return $value;
-}, 10, 3);
-```
 > Dans le template
 
 ```php
-<?php $period = get_field('date_begin')->format('F Y') ?>
+<?php
+$dateAcf = get_field('date_begin');
+$date = DateTime::createFromFormat('Ymd', $dateAcf);
+$period = $date->format('F Y');
+?>
 <p><?php echo $period ?></p>
 ```
 
