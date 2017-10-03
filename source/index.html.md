@@ -676,3 +676,19 @@ utilisables dans une `WP_Meta_Query`.
     Les indications qui précèdent sont truffées de mots clés qui donnent
     de bons résultats dans un moteur de recherche.
 </aside>
+
+## Ajouter un lien sous l’extrait de post
+
+> Dans `functions.php`
+
+```php
+<?php
+add_filter('the_excerpt', function ($exercpt) {
+    $exercpt = $exercpt . '<a class="more-link" href="'. get_the_permalink() .'">Lire plus</a>';
+    return $exercpt;
+});
+```
+
+On se branche sur le *hook* `the_excerpt` et on ajoute
+le lien à la valeur transmise (on modifie cette valeur 
+grâce au *hook* de type filtre.

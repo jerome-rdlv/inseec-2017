@@ -683,6 +683,22 @@ utilisables dans une <code class="prettyprint">WP_Meta_Query</code>.</p>
     de bons résultats dans un moteur de recherche.
 </aside>
 
+<h2 id="ajouter-un-lien-sous-l’extrait-de-post">Ajouter un lien sous l’extrait de post</h2>
+
+<blockquote>
+<p>Dans <code class="prettyprint">functions.php</code></p>
+</blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nx">add_filter</span><span class="p">(</span><span class="s1">'the_excerpt'</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$exercpt</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$exercpt</span> <span class="o">=</span> <span class="nv">$exercpt</span> <span class="o">.</span> <span class="s1">'&lt;a class="more-link" href="'</span><span class="o">.</span> <span class="nx">get_the_permalink</span><span class="p">()</span> <span class="o">.</span><span class="s1">'"&gt;Lire plus&lt;/a&gt;'</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nv">$exercpt</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre>
+
+<p>On se branche sur le <em>hook</em> <code class="prettyprint">the_excerpt</code> et on ajoute
+le lien à la valeur transmise (on modifie cette valeur 
+grâce au <em>hook</em> de type filtre.</p>
+
       </div>
       <div class="dark-box">
       </div>
