@@ -643,7 +643,7 @@ période que lorsqu’elle change.</p>
 
 <span class="nx">add_action</span><span class="p">(</span><span class="s1">'pre_get_posts'</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$query</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// attention, vérifier qu’on est sur la bonne requête avant toute autre opération !
-</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">is_main_query</span><span class="p">)</span> <span class="p">{</span>
+</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">is_main_query</span><span class="p">())</span> <span class="p">{</span>
         <span class="k">return</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">});</span>

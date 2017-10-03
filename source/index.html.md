@@ -637,7 +637,7 @@ période que lorsqu’elle change.
 
 add_action('pre_get_posts', function ($query) {
     // attention, vérifier qu’on est sur la bonne requête avant toute autre opération !
-    if (!$query->is_main_query) {
+    if (!$query->is_main_query()) {
         return;
     }
 });
