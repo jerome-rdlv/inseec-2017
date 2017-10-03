@@ -551,6 +551,7 @@ l’interface de gestion des menus (faire « View all » ou « Afficher tout�
 <p>Base pour le template d’archive</p>
 </blockquote>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">()</span> <span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">do_action</span><span class="p">(</span><span class="s1">'sd_events_filters'</span><span class="p">)</span> <span class="cp">?&gt;</span>
 <span class="cp">&lt;?php</span> <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span><span class="o">:</span> <span class="nx">the_post</span><span class="p">()</span> <span class="cp">?&gt;</span>
     <span class="nt">&lt;article&gt;</span>
         <span class="nt">&lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="nt">&lt;/h2&gt;</span>
@@ -582,6 +583,12 @@ les bons templates dans le thème enfant :</p>
 <li>Un template prenant en charge l’affichage de la liste des événements (donc entrée <em>Archive</em>)</li>
 <li>Un template prenant en charge l’affichage d’un événement tout seul (donc entrée <em>Singular Page</em>)</li>
 </ul>
+
+<p>On ajoute, au début du template d’archive, un <em>hook</em> d’action pour qu’un plugin puisse plus tard
+insérer ici le formulaire de recherche / filtrage des événements : <code class="prettyprint">do_action(&#39;sd_events_filters&#39;)</code>.</p>
+
+<p>Du code tiers — plugin ou mu-plugin — pourra alors exécuter ce que souhaité en
+enregistrant une fonction sur ce <em>hook</em> avec <code class="prettyprint">add_action(&#39;sd_events_filters&#39;, function () {})</code>.</p>
 
       </div>
       <div class="dark-box">

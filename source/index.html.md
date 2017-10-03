@@ -546,6 +546,7 @@ l’interface de gestion des menus (faire « View all » ou « Afficher tout�
 
 ```php
 <?php get_header() ?>
+<?php do_action('sd_events_filters') ?>
 <?php while (have_posts()): the_post() ?>
     <article>
         <h2><?php the_title() ?></h2>
@@ -576,3 +577,8 @@ les bons templates dans le thème enfant :
 * Un template prenant en charge l’affichage de la liste des événements (donc entrée *Archive*)
 * Un template prenant en charge l’affichage d’un événement tout seul (donc entrée *Singular Page*)
 
+On ajoute, au début du template d’archive, un *hook* d’action pour qu’un plugin puisse plus tard
+insérer ici le formulaire de recherche / filtrage des événements : `do_action('sd_events_filters')`.
+
+Du code tiers — plugin ou mu-plugin — pourra alors exécuter ce que souhaité en
+enregistrant une fonction sur ce *hook* avec `add_action('sd_events_filters', function () {})`.
