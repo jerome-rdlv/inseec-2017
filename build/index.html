@@ -595,22 +595,22 @@ enregistrant une fonction sur ce <em>hook</em> avec <code class="prettyprint">ad
 <blockquote>
 <p>Dans functions.php</p>
 </blockquote>
-<pre class="highlight php"><code>// works if save format is yymmdd, convert field value to DateTime
-add_action('acf/load_value', function ($value, $post_id, $field) {
-    if ($field['type'] == 'date_picker') {
-        $value = DateTime::createFromFormat('Ymd', $value);
-    }
-    return $value;
-}, 10, 3);
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="c1">// works if save format is yymmdd, convert field value to DateTime
+</span><span class="nx">add_action</span><span class="p">(</span><span class="s1">'acf/load_value'</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nv">$post_id</span><span class="p">,</span> <span class="nv">$field</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$field</span><span class="p">[</span><span class="s1">'type'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'date_picker'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$value</span> <span class="o">=</span> <span class="nx">DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">'Ymd'</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nv">$value</span><span class="p">;</span>
+<span class="p">},</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
-<p>Dans le template
-<code class="prettyprint">php
-&lt;?php $period = get_field(&#39;date_begin&#39;)-&gt;format(&#39;F Y&#39;) ?&gt;
-&lt;p&gt;&lt;?php echo $displayDate ?&gt;&lt;/p&gt;
-</code></p>
+<p>Dans le template</p>
 </blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span> <span class="nv">$period</span> <span class="o">=</span> <span class="nx">get_field</span><span class="p">(</span><span class="s1">'date_begin'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="s1">'F Y'</span><span class="p">)</span> <span class="cp">?&gt;</span>
+<span class="nt">&lt;p&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$displayDate</span> <span class="cp">?&gt;</span><span class="nt">&lt;/p&gt;</span>
+</code></pre>
 
 <p>La date de survenue des événements est affichée entre les événements dans la liste
 des événements sur le modèle Siècle Digital.</p>

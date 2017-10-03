@@ -599,6 +599,7 @@ add_action('acf/load_value', function ($value, $post_id, $field) {
 }, 10, 3);
 ```
 > Dans le template
+
 ```php
 <?php $period = get_field('date_begin')->format('F Y') ?>
 <p><?php echo $displayDate ?></p>
