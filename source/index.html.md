@@ -589,6 +589,7 @@ enregistrant une fonction sur ce *hook* avec `add_action('sd_events_filters', fu
 > Dans functions.php
 
 ```php
+<?php
 // works if save format is yymmdd, convert field value to DateTime
 add_action('acf/load_value', function ($value, $post_id, $field) {
     if ($field['type'] == 'date_picker') {
