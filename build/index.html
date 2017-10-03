@@ -593,22 +593,13 @@ enregistrant une fonction sur ce <em>hook</em> avec <code class="prettyprint">ad
 <h2 id="affichage-d’une-date-personnalisée">Affichage d’une date personnalisée</h2>
 
 <blockquote>
-<p>Dans functions.php</p>
-</blockquote>
-<pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="c1">// works if save format is yymmdd, convert field value to DateTime
-</span><span class="nx">add_action</span><span class="p">(</span><span class="s1">'acf/load_value'</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nv">$post_id</span><span class="p">,</span> <span class="nv">$field</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nv">$field</span><span class="p">[</span><span class="s1">'type'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'date_picker'</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nv">$value</span> <span class="o">=</span> <span class="nx">DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">'Ymd'</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="nv">$value</span><span class="p">;</span>
-<span class="p">},</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
-</code></pre>
-
-<blockquote>
 <p>Dans le template</p>
 </blockquote>
-<pre class="highlight php"><code><span class="cp">&lt;?php</span> <span class="nv">$period</span> <span class="o">=</span> <span class="nx">get_field</span><span class="p">(</span><span class="s1">'date_begin'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="s1">'F Y'</span><span class="p">)</span> <span class="cp">?&gt;</span>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$dateAcf</span> <span class="o">=</span> <span class="nx">get_field</span><span class="p">(</span><span class="s1">'date_begin'</span><span class="p">);</span>
+<span class="nv">$date</span> <span class="o">=</span> <span class="nx">DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">'Ymd'</span><span class="p">,</span> <span class="nv">$dateAcf</span><span class="p">);</span>
+<span class="nv">$period</span> <span class="o">=</span> <span class="nv">$date</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="s1">'F Y'</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 <span class="nt">&lt;p&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$period</span> <span class="cp">?&gt;</span><span class="nt">&lt;/p&gt;</span>
 </code></pre>
 
