@@ -627,3 +627,52 @@ obtenir la valeur, comme avant, et la formatter comme voulu.
 À ce stade, la période (par exemple « Novembre 2017 ») va apparaître
 entre chaque article. Je vous laisse chercher comment n’afficher cette
 période que lorsqu’elle change.
+
+## Modifier l’ordre des événements
+
+> Dans `functions.php` (question relative au thème, à l’affichage)
+
+```php
+<?php
+
+add_action('pre_get_posts', function ($query) {
+    // attention, vérifier qu’on est sur la bonne requête avant toute autre opération !
+    if (!$query->is_main_query) {
+        return;
+    }
+});
+```
+
+Par défaut, WordPress affiche les événements par ordre décroissant de date de création.
+Nous souhaitons faire afficher ces événements par ordre croissant de champ
+ACF (le champ ACF dans lequel nous stockons la date de début).
+
+Pour modifier l’ordre d’affichage, il faut modifier la requête WordPress qui
+va chercher les événements dans la base de données. Pour modifier cette
+requête, WordPress nous offre un *hook* parfait : 
+[`pre_get_posts`](https://codex.wordpress.org/Plugin_API/Action_Reference/pre_get_posts)
+dont la documentation est d’une grande aide.
+
+Attention, avant de modifier la requête, de vérifier qu’on modifie la bonne.
+Pour information, le *hook* `pre_get_posts` est appelé pour toutes les requêtes
+de contenu de WordPress, donc pour la requête principale, mais aussi pour les
+requêtes supplémentaires (*sidebar* par exemple) et les requêtes de l’administration.
+
+On peut évacuer les cas non désirés en suivant le modèle de l’exemple de droite :
+test et `return` si le résultat ne convient pas. Le mot clé `return` fait
+ressortir de la fonction et la suite de la fonction n’est pas exécutée.
+
+Toutes les requêtes de WordPress sont représentées par un objet de type
+[`WP_Query`](https://codex.wordpress.org/Class_Reference/WP_Query). La
+documentation de cet objet, de ses *propriétés* et de ses *méthodes*
+devrait suffire pour modifier l’ordre des événements. Un indice quand même,
+il va falloir ajouter une [`WP_Meta_Query`](https://codex.wordpress.org/Class_Reference/WP_Meta_Query)
+à l’objet `WP_Query` pour activer l’ordre sur un champ meta (*custom field*).
+ACF se contente de fournir une interface d’édition au système de champs meta. Les
+noms de vos champs ACF sont également les noms de vos champs meta,
+utilisables dans une `WP_Meta_Query`.
+
+<aside class="notice">
+    Les indications qui précèdent sont truffées de mots clés qui donnent
+    de bons résultats dans un moteur de recherche.
+</aside>

@@ -634,6 +634,55 @@ obtenir la valeur, comme avant, et la formatter comme voulu.</p>
 entre chaque article. Je vous laisse chercher comment n’afficher cette
 période que lorsqu’elle change.</p>
 
+<h2 id="modifier-l’ordre-des-événements">Modifier l’ordre des événements</h2>
+
+<blockquote>
+<p>Dans <code class="prettyprint">functions.php</code> (question relative au thème, à l’affichage)</p>
+</blockquote>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nx">add_action</span><span class="p">(</span><span class="s1">'pre_get_posts'</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$query</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// attention, vérifier qu’on est sur la bonne requête avant toute autre opération !
+</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">is_main_query</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+
+<p>Par défaut, WordPress affiche les événements par ordre décroissant de date de création.
+Nous souhaitons faire afficher ces événements par ordre croissant de champ
+ACF (le champ ACF dans lequel nous stockons la date de début).</p>
+
+<p>Pour modifier l’ordre d’affichage, il faut modifier la requête WordPress qui
+va chercher les événements dans la base de données. Pour modifier cette
+requête, WordPress nous offre un <em>hook</em> parfait : 
+<a href="https://codex.wordpress.org/Plugin_API/Action_Reference/pre_get_posts"><code class="prettyprint">pre_get_posts</code></a>
+dont la documentation est d’une grande aide.</p>
+
+<p>Attention, avant de modifier la requête, de vérifier qu’on modifie la bonne.
+Pour information, le <em>hook</em> <code class="prettyprint">pre_get_posts</code> est appelé pour toutes les requêtes
+de contenu de WordPress, donc pour la requête principale, mais aussi pour les
+requêtes supplémentaires (<em>sidebar</em> par exemple) et les requêtes de l’administration.</p>
+
+<p>On peut évacuer les cas non désirés en suivant le modèle de l’exemple de droite :
+test et <code class="prettyprint">return</code> si le résultat ne convient pas. Le mot clé <code class="prettyprint">return</code> fait
+ressortir de la fonction et la suite de la fonction n’est pas exécutée.</p>
+
+<p>Toutes les requêtes de WordPress sont représentées par un objet de type
+<a href="https://codex.wordpress.org/Class_Reference/WP_Query"><code class="prettyprint">WP_Query</code></a>. La
+documentation de cet objet, de ses <em>propriétés</em> et de ses <em>méthodes</em>
+devrait suffire pour modifier l’ordre des événements. Un indice quand même,
+il va falloir ajouter une <a href="https://codex.wordpress.org/Class_Reference/WP_Meta_Query"><code class="prettyprint">WP_Meta_Query</code></a>
+à l’objet <code class="prettyprint">WP_Query</code> pour activer l’ordre sur un champ meta (<em>custom field</em>).
+ACF se contente de fournir une interface d’édition au système de champs meta. Les
+noms de vos champs ACF sont également les noms de vos champs meta,
+utilisables dans une <code class="prettyprint">WP_Meta_Query</code>.</p>
+
+<aside class="notice">
+    Les indications qui précèdent sont truffées de mots clés qui donnent
+    de bons résultats dans un moteur de recherche.
+</aside>
+
       </div>
       <div class="dark-box">
       </div>
